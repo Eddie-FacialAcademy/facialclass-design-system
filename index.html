@@ -248,9 +248,27 @@
 
   /* ÍCONES · Phosphor (stroke 1pt) */
   .icon-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:8px}
-  .icell{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 8px 12px;display:flex;flex-direction:column;align-items:center;gap:11px;text-align:center}
+  .icell{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 8px 12px;display:flex;flex-direction:column;align-items:center;gap:11px;text-align:center;
+    position:relative;cursor:pointer;font:inherit;color:inherit;width:100%;
+    transition:border-color .16s var(--ease),background .16s var(--ease)}
   .icell svg{width:30px;height:30px;color:var(--txt)}
   .icell .inm{font-size:10px;color:var(--mut);font-weight:500;line-height:1.3;font-family:ui-monospace,monospace}
+  .icell .ic-copy{position:absolute;top:7px;right:7px;display:inline-flex;color:var(--mut);opacity:0;transition:opacity .16s var(--ease)}
+  .icell .ic-copy svg{width:13px;height:13px;color:inherit}
+  .icell:hover{border-color:var(--lilas)}
+  .icell:hover .ic-copy{opacity:1}
+  .icell:focus-visible{outline:none;box-shadow:var(--focus)}
+  .icell:focus-visible .ic-copy{opacity:1}
+  .icell.is-done{border-color:var(--success)}
+  .icell.is-done .ic-copy{opacity:1;color:var(--success)}
+  .icell.is-done .inm{color:var(--success)}
+  @media(hover:none){.icell .ic-copy{opacity:.55}}
+  .ph-link{display:inline-flex;align-items:center;gap:11px;margin-top:16px;text-decoration:none;
+    font-size:14px;font-weight:600;color:var(--txt);background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius-pill);padding:12px 20px;transition:border-color .2s var(--ease),transform .2s var(--ease)}
+  .ph-link:hover{border-color:var(--lilas);transform:translateY(-1px)}
+  .ph-link svg{width:18px;height:18px;color:var(--lilas);flex:0 0 auto}
+  .ph-link .host{font-family:ui-monospace,monospace;font-size:12px;color:var(--mut);font-weight:500}
   .icon-sizes{display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;margin-top:10px}
   .isz{display:flex;flex-direction:column;align-items:center;gap:9px}
   .isz svg{color:var(--lilas)}
@@ -289,9 +307,22 @@
   .btn-tbl .cell{display:flex;align-items:center;min-height:30px}
   @media(max-width:820px){.btn-tbl{grid-template-columns:1fr;gap:10px}.btn-tbl .h{display:none}}
   .grad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
-  .grad{height:120px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:flex-end;padding:12px;overflow:hidden}
+  .grad{height:120px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:flex-end;padding:12px;overflow:hidden;position:relative}
   .grad span{font-size:11px;color:#fff;background:rgba(0,0,0,.62);padding:4px 9px;border-radius:14px;font-weight:500}
   .grad.on-light span{color:#241733;background:rgba(255,255,255,.62)}
+  .grad .dl-png{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:6px;
+    font:inherit;font-size:10.5px;font-weight:600;letter-spacing:.03em;cursor:pointer;color:#fff;
+    background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.30);border-radius:var(--radius-pill);
+    padding:6px 11px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transform:translateY(-3px);
+    transition:opacity .18s var(--ease),transform .18s var(--ease),background .18s var(--ease)}
+  .grad:hover .dl-png,.grad:focus-within .dl-png{opacity:1;transform:none}
+  .grad .dl-png:hover{background:rgba(0,0,0,.64)}
+  .grad .dl-png:focus-visible{outline:none;box-shadow:var(--focus);opacity:1;transform:none}
+  .grad .dl-png svg{width:13px;height:13px;stroke:currentColor;flex:0 0 auto}
+  .grad.on-light .dl-png{color:#241733;background:rgba(255,255,255,.58);border-color:rgba(0,0,0,.14)}
+  .grad.on-light .dl-png:hover{background:rgba(255,255,255,.85)}
+  .grad .dl-png.is-done{background:var(--success);color:#fff;border-color:transparent;opacity:1;transform:none}
+  @media(hover:none){.grad .dl-png{opacity:1;transform:none}}
   .g-prim{background:linear-gradient(120deg,#644389,#3A274F)}
   .g-aurora{background:radial-gradient(at 30% 0%,rgba(100,67,137,.55) 0,transparent 60%),radial-gradient(at 80% 100%,rgba(255,202,155,.24) 0,transparent 55%),#0A070E}
   .g-mesh1{background:radial-gradient(at 22% 20%,rgba(162,137,215,.50) 0,transparent 52%),radial-gradient(at 82% 26%,rgba(255,177,189,.36) 0,transparent 50%),radial-gradient(at 62% 92%,rgba(100,67,137,.66) 0,transparent 55%),#0D0912}
@@ -454,6 +485,53 @@
   <symbol id="ph-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16.5v-5"/><path d="M12 8.2h.01"/></symbol>
   <symbol id="ph-warn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.4l8.6 14.6H3.4L12 4.4z"/><path d="M12 10v4.2"/><path d="M12 17.2h.01"/></symbol>
   <symbol id="ph-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></symbol>
+
+  <!-- Phosphor Thin · ampliação do sistema (stroke 1 · grade 24) -->
+  <symbol id="ph-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M5.5 9.7V19a1 1 0 0 0 1 1H17.5a1 1 0 0 0 1-1V9.7"/><path d="M9.7 20v-5.3a1 1 0 0 1 1-1h2.6a1 1 0 0 1 1 1V20"/></symbol>
+  <symbol id="ph-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="ph-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+  <symbol id="ph-caret-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 14.5 12 8l6.5 6.5"/></symbol>
+  <symbol id="ph-caret-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5 8 12l6.5 6.5"/></symbol>
+  <symbol id="ph-caret-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 5.5 16 12l-6.5 6.5"/></symbol>
+  <symbol id="ph-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5H6.5A1.5 1.5 0 0 0 5 6.5v11A1.5 1.5 0 0 0 6.5 19h11a1.5 1.5 0 0 0 1.5-1.5V13"/><path d="M14 5h5v5"/><path d="M19 5l-7.5 7.5"/></symbol>
+  <symbol id="ph-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.2"/><path d="M15.6 15.6 20 20"/></symbol>
+  <symbol id="ph-funnel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 5.5h15l-5.7 7v5.2l-3.6 1.8v-7L4.5 5.5z"/></symbol>
+  <symbol id="ph-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2.2"/><circle cx="9" cy="16" r="2.2"/></symbol>
+  <symbol id="ph-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3.5v2.6M12 17.9v2.6M20.5 12h-2.6M6.1 12H3.5M18 6l-1.8 1.8M7.8 16.2 6 18M18 18l-1.8-1.8M7.8 7.8 6 6"/></symbol>
+  <symbol id="ph-dots" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/><circle cx="18.5" cy="12" r="1.1" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ph-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15.5 15.5 5l3.5 3.5L8.5 19H5v-3.5z"/><path d="M13.5 7 17 10.5"/></symbol>
+  <symbol id="ph-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14"/><path d="M9.5 7V5.6A1.6 1.6 0 0 1 11.1 4h1.8A1.6 1.6 0 0 1 14.5 5.6V7"/><path d="M6.8 7l.9 11.4a1.5 1.5 0 0 0 1.5 1.4h5.6a1.5 1.5 0 0 0 1.5-1.4L17.2 7"/><path d="M10.2 10.5v5M13.8 10.5v5"/></symbol>
+  <symbol id="ph-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="8.5" width="10.5" height="11" rx="2"/><path d="M6 15.5H5.5A1.5 1.5 0 0 1 4 14V6A1.5 1.5 0 0 1 5.5 4.5H13A1.5 1.5 0 0 1 14.5 6v.5"/></symbol>
+  <symbol id="ph-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.8 10.8 12 15l4.2-4.2"/><path d="M5 19.5h14"/></symbol>
+  <symbol id="ph-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V9M7.8 13.2 12 9l4.2 4.2"/><path d="M5 4.5h14"/></symbol>
+  <symbol id="ph-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="12" r="2.4"/><circle cx="17" cy="6.2" r="2.4"/><circle cx="17" cy="17.8" r="2.4"/><path d="M8.6 10.9 14.9 7.3M8.6 13.1l6.3 3.6"/></symbol>
+  <symbol id="ph-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5L11 8"/><path d="M14 10a3.5 3.5 0 0 0-5 0L6.5 12.5a3.5 3.5 0 0 0 5 5L13 16"/></symbol>
+  <symbol id="ph-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5h11a1 1 0 0 1 1 1v14l-6.5-4.2L5.5 19.5v-14a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="ph-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16.5c1-1 1.5-2.2 1.5-4v-1.8a4 4 0 0 1 8 0V12.5c0 1.8.5 3 1.5 4H6.5z"/><path d="M10.2 19a2 2 0 0 0 3.6 0"/></symbol>
+  <symbol id="ph-plus-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.3"/><path d="M12 8.2v7.6M8.2 12h7.6"/></symbol>
+  <symbol id="ph-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+  <symbol id="ph-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5h7.2L20 13.3l-6.7 6.7L4.5 11.2V4.5z"/><circle cx="8" cy="8" r="1.2" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="ph-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4v15.5h15"/><path d="M8.5 19.5v-5M12.5 19.5V9.5M16.5 19.5v-7.5"/></symbol>
+  <symbol id="ph-envelope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.8"/><path d="M4.2 7.2 12 13l7.8-5.8"/></symbol>
+  <symbol id="ph-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5.5h3l1.3 3.5-1.7 1.4a11 11 0 0 0 5 5l1.4-1.7 3.5 1.3v3a1.5 1.5 0 0 1-1.6 1.5C10.8 22.6 4.4 16.2 4.5 8.1A1.5 1.5 0 0 1 6 6.5z"/></symbol>
+  <symbol id="ph-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 1 1 3 6l-3.2.9.9-3.1A7.4 7.4 0 0 1 4.5 12z"/><path d="M9 11h6M9 13.5h4"/></symbol>
+  <symbol id="ph-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4 4 10.5l6 2.2 2.9 7.3L20 4z"/><path d="M20 4 10 12.9"/></symbol>
+  <symbol id="ph-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M5 17.5l4.5-4.2 3 2.6 4-3.4 3.5 3.2"/></symbol>
+  <symbol id="ph-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5h2.8L8.2 6.3h7.6L17.2 8.5H20a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></symbol>
+  <symbol id="ph-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5.5" width="16" height="14" rx="1.8"/><path d="M4 9.5h16M8 3.8v3.4M16 3.8v3.4"/></symbol>
+  <symbol id="ph-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h6.5l4.5 4.5v11.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5V4a.5.5 0 0 1 .5-.5z"/><path d="M13 3.7V8h4.3"/><path d="M9 13h6M9 16h4.5"/></symbol>
+  <symbol id="ph-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M3.8 6.5A1 1 0 0 1 4.8 5.5H9l2 2h8.2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4.8a1 1 0 0 1-1-1V6.5z"/></symbol>
+  <symbol id="ph-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 0 1 4.7 1.1c0 1.7-2.3 2-2.3 3.6"/><path d="M12 16.6h.01"/></symbol>
+  <symbol id="ph-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.5C7 16 4.2 12.8 4.2 9.5A3.7 3.7 0 0 1 12 6.6 3.7 3.7 0 0 1 19.8 9.5c0 3.3-2.8 6.5-7.8 10z"/></symbol>
+  <symbol id="ph-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2.8 12S6 6 12 6s9.2 6 9.2 6-3.2 6-9.2 6-9.2-6-9.2-6z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+  <symbol id="ph-eye-slash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5l15 15"/><path d="M9.8 9.9A3 3 0 0 0 12 15a3 3 0 0 0 2.2-1"/><path d="M7.4 7.5C4.5 9.1 2.8 12 2.8 12s3.2 6 9.2 6a9.3 9.3 0 0 0 3.4-.7M16.7 15C19.3 13.4 21.2 12 21.2 12S18 6 12 6a9.7 9.7 0 0 0-1.6.13"/></symbol>
+  <symbol id="ph-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M5.5 19.5a6.5 6.5 0 0 1 13 0"/></symbol>
+  <symbol id="ph-user-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="10" r="2.8"/><path d="M6.8 18a5.6 5.6 0 0 1 10.4 0"/></symbol>
+  <symbol id="ph-sign-out" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4.5h-8a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h8"/><path d="M11 12h9M16.5 8.5 20 12l-3.5 3.5"/></symbol>
+  <symbol id="ph-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s6-5.4 6-10.1A6 6 0 0 0 6 10.4c0 4.7 6 10.1 6 10.1z"/><circle cx="12" cy="10.2" r="2.3"/></symbol>
+  <symbol id="ph-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="12" r="3.5"/><path d="M11.8 11.2h8.2M17.5 11.2v3M20 11.2v2.3"/></symbol>
+  <symbol id="ph-lock-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 6.8-1.2"/><path d="M12 14.3v2.2"/></symbol>
+  <symbol id="ph-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.8"/><path d="M3.5 10h17M6.5 14.5h3.5"/></symbol>
 </defs></svg>
 
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro e escuro" aria-pressed="false">
@@ -813,22 +891,88 @@
   <div class="sec-title"><span class="num">06</span><h2>Ícones</h2></div>
   <p class="sec-note">Biblioteca única: <b class="hl">Phosphor</b> (disponível nativamente no Framer). Peso padrão <b class="hl">Thin</b> — traço de <b class="hl">1&nbsp;pt</b> (stroke 1 na grade de 24), pontas e junções arredondadas. Cor por <code>currentColor</code> (herda o texto / accent), então acompanha o tema. Nunca misture pesos diferentes na mesma tela e nunca use emoji como ícone.</p>
 
-  <div class="group-lbl">Conjunto de exemplo (mapeado à Phosphor)</div>
+  <p class="sec-note" style="margin-top:-14px">Conjunto de sistema desenhado na grade 24. <b class="hl">Clique em qualquer ícone para copiar o SVG.</b> Para o catálogo completo, use o link da Phosphor no fim da seção.</p>
+
+  <div class="group-lbl">Domínio · saúde &amp; curso</div>
   <div class="icon-grid">
-    <div class="icell"><svg><use href="#ph-shield"/></svg><span class="inm">ShieldCheck</span></div>
-    <div class="icell"><svg><use href="#ph-firstaid"/></svg><span class="inm">FirstAidKit</span></div>
-    <div class="icell"><svg><use href="#ph-drop"/></svg><span class="inm">Drop</span></div>
-    <div class="icell"><svg><use href="#ph-cap"/></svg><span class="inm">GraduationCap</span></div>
-    <div class="icell"><svg><use href="#ph-certif" /></svg><span class="inm">Certificate</span></div>
-    <div class="icell"><svg><use href="#ph-play"/></svg><span class="inm">PlayCircle</span></div>
-    <div class="icell"><svg><use href="#ph-users"/></svg><span class="inm">UsersThree</span></div>
-    <div class="icell"><svg><use href="#ph-clock"/></svg><span class="inm">Clock</span></div>
-    <div class="icell"><svg><use href="#ph-star"/></svg><span class="inm">Star</span></div>
-    <div class="icell"><svg><use href="#ph-check"/></svg><span class="inm">CheckCircle</span></div>
-    <div class="icell"><svg><use href="#ph-plus"/></svg><span class="inm">Plus</span></div>
-    <div class="icell"><svg><use href="#ph-arrow"/></svg><span class="inm">ArrowRight</span></div>
-    <div class="icell"><svg><use href="#ph-caret"/></svg><span class="inm">CaretDown</span></div>
-    <div class="icell"><svg><use href="#ph-lock"/></svg><span class="inm">Lock</span></div>
+    <button class="icell" type="button" data-icon="ph-shield" aria-label="Copiar SVG · ShieldCheck"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-shield"/></svg><span class="inm">ShieldCheck</span></button>
+    <button class="icell" type="button" data-icon="ph-firstaid" aria-label="Copiar SVG · FirstAidKit"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-firstaid"/></svg><span class="inm">FirstAidKit</span></button>
+    <button class="icell" type="button" data-icon="ph-drop" aria-label="Copiar SVG · Drop"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-drop"/></svg><span class="inm">Drop</span></button>
+    <button class="icell" type="button" data-icon="ph-cap" aria-label="Copiar SVG · GraduationCap"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-cap"/></svg><span class="inm">GraduationCap</span></button>
+    <button class="icell" type="button" data-icon="ph-certif" aria-label="Copiar SVG · Certificate"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-certif"/></svg><span class="inm">Certificate</span></button>
+    <button class="icell" type="button" data-icon="ph-play" aria-label="Copiar SVG · PlayCircle"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-play"/></svg><span class="inm">PlayCircle</span></button>
+    <button class="icell" type="button" data-icon="ph-users" aria-label="Copiar SVG · UsersThree"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-users"/></svg><span class="inm">UsersThree</span></button>
+    <button class="icell" type="button" data-icon="ph-lock" aria-label="Copiar SVG · Lock"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-lock"/></svg><span class="inm">Lock</span></button>
+    <button class="icell" type="button" data-icon="ph-star" aria-label="Copiar SVG · Star"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-star"/></svg><span class="inm">Star</span></button>
+    <button class="icell" type="button" data-icon="ph-clock" aria-label="Copiar SVG · Clock"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-clock"/></svg><span class="inm">Clock</span></button>
+    <button class="icell" type="button" data-icon="ph-check" aria-label="Copiar SVG · CheckCircle"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-check"/></svg><span class="inm">CheckCircle</span></button>
+    <button class="icell" type="button" data-icon="ph-heart" aria-label="Copiar SVG · Heart"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-heart"/></svg><span class="inm">Heart</span></button>
+  </div>
+
+  <div class="group-lbl">Navegação</div>
+  <div class="icon-grid">
+    <button class="icell" type="button" data-icon="ph-house" aria-label="Copiar SVG · House"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-house"/></svg><span class="inm">House</span></button>
+    <button class="icell" type="button" data-icon="ph-list" aria-label="Copiar SVG · List"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-list"/></svg><span class="inm">List</span></button>
+    <button class="icell" type="button" data-icon="ph-close" aria-label="Copiar SVG · X"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-close"/></svg><span class="inm">X</span></button>
+    <button class="icell" type="button" data-icon="ph-arrow" aria-label="Copiar SVG · ArrowRight"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-arrow"/></svg><span class="inm">ArrowRight</span></button>
+    <button class="icell" type="button" data-icon="ph-caret" aria-label="Copiar SVG · CaretDown"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-caret"/></svg><span class="inm">CaretDown</span></button>
+    <button class="icell" type="button" data-icon="ph-caret-up" aria-label="Copiar SVG · CaretUp"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-caret-up"/></svg><span class="inm">CaretUp</span></button>
+    <button class="icell" type="button" data-icon="ph-caret-left" aria-label="Copiar SVG · CaretLeft"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-caret-left"/></svg><span class="inm">CaretLeft</span></button>
+    <button class="icell" type="button" data-icon="ph-caret-right" aria-label="Copiar SVG · CaretRight"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-caret-right"/></svg><span class="inm">CaretRight</span></button>
+    <button class="icell" type="button" data-icon="ph-external" aria-label="Copiar SVG · ArrowSquareOut"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-external"/></svg><span class="inm">ArrowSquareOut</span></button>
+    <button class="icell" type="button" data-icon="ph-search" aria-label="Copiar SVG · MagnifyingGlass"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-search"/></svg><span class="inm">MagnifyingGlass</span></button>
+    <button class="icell" type="button" data-icon="ph-funnel" aria-label="Copiar SVG · Funnel"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-funnel"/></svg><span class="inm">Funnel</span></button>
+    <button class="icell" type="button" data-icon="ph-dots" aria-label="Copiar SVG · DotsThree"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-dots"/></svg><span class="inm">DotsThree</span></button>
+  </div>
+
+  <div class="group-lbl">Ação &amp; conteúdo</div>
+  <div class="icon-grid">
+    <button class="icell" type="button" data-icon="ph-pencil" aria-label="Copiar SVG · PencilSimple"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-pencil"/></svg><span class="inm">PencilSimple</span></button>
+    <button class="icell" type="button" data-icon="ph-trash" aria-label="Copiar SVG · Trash"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-trash"/></svg><span class="inm">Trash</span></button>
+    <button class="icell" type="button" data-icon="ph-copy" aria-label="Copiar SVG · Copy"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-copy"/></svg><span class="inm">Copy</span></button>
+    <button class="icell" type="button" data-icon="ph-download" aria-label="Copiar SVG · DownloadSimple"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-download"/></svg><span class="inm">DownloadSimple</span></button>
+    <button class="icell" type="button" data-icon="ph-upload" aria-label="Copiar SVG · UploadSimple"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-upload"/></svg><span class="inm">UploadSimple</span></button>
+    <button class="icell" type="button" data-icon="ph-share" aria-label="Copiar SVG · ShareNetwork"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-share"/></svg><span class="inm">ShareNetwork</span></button>
+    <button class="icell" type="button" data-icon="ph-link" aria-label="Copiar SVG · Link"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-link"/></svg><span class="inm">Link</span></button>
+    <button class="icell" type="button" data-icon="ph-bookmark" aria-label="Copiar SVG · Bookmark"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-bookmark"/></svg><span class="inm">Bookmark</span></button>
+    <button class="icell" type="button" data-icon="ph-bell" aria-label="Copiar SVG · Bell"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-bell"/></svg><span class="inm">Bell</span></button>
+    <button class="icell" type="button" data-icon="ph-gear" aria-label="Copiar SVG · Gear"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-gear"/></svg><span class="inm">Gear</span></button>
+    <button class="icell" type="button" data-icon="ph-sliders" aria-label="Copiar SVG · SlidersHorizontal"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-sliders"/></svg><span class="inm">SlidersHorizontal</span></button>
+    <button class="icell" type="button" data-icon="ph-plus" aria-label="Copiar SVG · Plus"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-plus"/></svg><span class="inm">Plus</span></button>
+    <button class="icell" type="button" data-icon="ph-plus-circle" aria-label="Copiar SVG · PlusCircle"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-plus-circle"/></svg><span class="inm">PlusCircle</span></button>
+    <button class="icell" type="button" data-icon="ph-minus" aria-label="Copiar SVG · Minus"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-minus"/></svg><span class="inm">Minus</span></button>
+    <button class="icell" type="button" data-icon="ph-tag" aria-label="Copiar SVG · Tag"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-tag"/></svg><span class="inm">Tag</span></button>
+    <button class="icell" type="button" data-icon="ph-chart" aria-label="Copiar SVG · ChartBar"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-chart"/></svg><span class="inm">ChartBar</span></button>
+  </div>
+
+  <div class="group-lbl">Comunicação &amp; mídia</div>
+  <div class="icon-grid">
+    <button class="icell" type="button" data-icon="ph-envelope" aria-label="Copiar SVG · Envelope"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-envelope"/></svg><span class="inm">Envelope</span></button>
+    <button class="icell" type="button" data-icon="ph-phone" aria-label="Copiar SVG · Phone"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-phone"/></svg><span class="inm">Phone</span></button>
+    <button class="icell" type="button" data-icon="ph-chat" aria-label="Copiar SVG · ChatCircle"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-chat"/></svg><span class="inm">ChatCircle</span></button>
+    <button class="icell" type="button" data-icon="ph-send" aria-label="Copiar SVG · PaperPlaneTilt"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-send"/></svg><span class="inm">PaperPlaneTilt</span></button>
+    <button class="icell" type="button" data-icon="ph-image" aria-label="Copiar SVG · Image"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-image"/></svg><span class="inm">Image</span></button>
+    <button class="icell" type="button" data-icon="ph-camera" aria-label="Copiar SVG · Camera"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-camera"/></svg><span class="inm">Camera</span></button>
+    <button class="icell" type="button" data-icon="ph-calendar" aria-label="Copiar SVG · Calendar"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-calendar"/></svg><span class="inm">Calendar</span></button>
+    <button class="icell" type="button" data-icon="ph-file" aria-label="Copiar SVG · FileText"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-file"/></svg><span class="inm">FileText</span></button>
+    <button class="icell" type="button" data-icon="ph-folder" aria-label="Copiar SVG · Folder"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-folder"/></svg><span class="inm">Folder</span></button>
+  </div>
+
+  <div class="group-lbl">Status &amp; conta</div>
+  <div class="icon-grid">
+    <button class="icell" type="button" data-icon="ph-info" aria-label="Copiar SVG · Info"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-info"/></svg><span class="inm">Info</span></button>
+    <button class="icell" type="button" data-icon="ph-warn" aria-label="Copiar SVG · Warning"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-warn"/></svg><span class="inm">Warning</span></button>
+    <button class="icell" type="button" data-icon="ph-question" aria-label="Copiar SVG · Question"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-question"/></svg><span class="inm">Question</span></button>
+    <button class="icell" type="button" data-icon="ph-x" aria-label="Copiar SVG · XCircle"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-x"/></svg><span class="inm">XCircle</span></button>
+    <button class="icell" type="button" data-icon="ph-eye" aria-label="Copiar SVG · Eye"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-eye"/></svg><span class="inm">Eye</span></button>
+    <button class="icell" type="button" data-icon="ph-eye-slash" aria-label="Copiar SVG · EyeSlash"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-eye-slash"/></svg><span class="inm">EyeSlash</span></button>
+    <button class="icell" type="button" data-icon="ph-user" aria-label="Copiar SVG · User"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-user"/></svg><span class="inm">User</span></button>
+    <button class="icell" type="button" data-icon="ph-user-circle" aria-label="Copiar SVG · UserCircle"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-user-circle"/></svg><span class="inm">UserCircle</span></button>
+    <button class="icell" type="button" data-icon="ph-sign-out" aria-label="Copiar SVG · SignOut"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-sign-out"/></svg><span class="inm">SignOut</span></button>
+    <button class="icell" type="button" data-icon="ph-map-pin" aria-label="Copiar SVG · MapPin"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-map-pin"/></svg><span class="inm">MapPin</span></button>
+    <button class="icell" type="button" data-icon="ph-key" aria-label="Copiar SVG · Key"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-key"/></svg><span class="inm">Key</span></button>
+    <button class="icell" type="button" data-icon="ph-lock-open" aria-label="Copiar SVG · LockOpen"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-lock-open"/></svg><span class="inm">LockOpen</span></button>
+    <button class="icell" type="button" data-icon="ph-credit-card" aria-label="Copiar SVG · CreditCard"><span class="ic-copy" aria-hidden="true"><svg><use href="#i-copy"/></svg></span><svg aria-hidden="true"><use href="#ph-credit-card"/></svg><span class="inm">CreditCard</span></button>
   </div>
 
   <div class="group-lbl">Tamanhos · tokens de ícone</div>
@@ -840,6 +984,10 @@
     <div class="isz"><svg width="48" height="48"><use href="#ph-shield"/></svg><span class="lbl">xl · 48</span></div>
   </div>
   <p class="sec-note" style="margin-top:22px">No Framer: insira o ícone Phosphor, defina <b class="hl">Weight = Thin</b> e a cor como Color Style (texto/accent). Em botões, o ícone alinha à baseline do texto com gap de 8&nbsp;px; alvo de toque mínimo de 44&nbsp;px mesmo quando o glifo é menor.</p>
+
+  <div class="group-lbl">Biblioteca completa</div>
+  <p class="sec-note" style="margin-bottom:0">Os ícones acima são um recorte de sistema desenhado na grade 24. Para qualquer outro glifo, use a biblioteca oficial — <b class="hl">9.000+ ícones em 6 pesos</b>, todos disponíveis nativamente no Framer.</p>
+  <a class="ph-link" href="https://phosphoricons.com" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ph-external"/></svg>Abrir biblioteca Phosphor<span class="host">phosphoricons.com</span></a>
 </div></section>
 
 <!-- 05 ACESSIBILIDADE -->
@@ -1072,7 +1220,44 @@
       var a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();
       document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url);},1000);
     }
+    /* Ícone -> SVG standalone (carrega os atributos de traço do <symbol> para a raiz <svg>). */
+    function buildIconSVG(id){
+      var sym=document.getElementById(id);if(!sym)return '';
+      var vb=sym.getAttribute('viewBox')||'0 0 24 24',pres='';
+      ['fill','stroke','stroke-width','stroke-linecap','stroke-linejoin'].forEach(function(a){
+        var val=sym.getAttribute(a);if(val!=null)pres+=' '+a+'="'+val+'"';
+      });
+      var inner=sym.innerHTML.replace(/>\s+</g,'><').replace(/></g,'>\n  <').trim();
+      return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+vb+'" width="24" height="24"'+pres+'>\n  '+inner+'\n</svg>\n';
+    }
+    function downloadBlob(filename,blob){
+      var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;
+      document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    }
+    /* Degradê -> PNG em alta: renderiza o CSS real via <foreignObject> num canvas 1920x1080 (pixel-perfect). */
+    function gradToPNG(el,name,btn){
+      var W=1920,H=1080,cs=getComputedStyle(el);
+      var div='<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+W+'px;height:'+H+'px;background-color:'+cs.backgroundColor+';background-image:'+cs.backgroundImage+';"></div>';
+      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+W+'" height="'+H+'"><foreignObject x="0" y="0" width="100%" height="100%">'+div+'</foreignObject></svg>';
+      var img=new Image();
+      img.onload=function(){
+        try{
+          var c=document.createElement('canvas');c.width=W;c.height=H;
+          c.getContext('2d').drawImage(img,0,0);
+          c.toBlob(function(blob){if(!blob){flash('Falha ao gerar PNG');return;}downloadBlob(name+'.png',blob);flash('PNG baixado');if(btn)markDone(btn);},'image/png');
+        }catch(err){flash('PNG bloqueado pelo navegador');}
+      };
+      img.onerror=function(){flash('Falha ao gerar PNG');};
+      img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
+    }
     function markDone(btn){btn.classList.add('is-done');setTimeout(function(){btn.classList.remove('is-done');},1200);}
+    /* Injeta o botão "PNG" em cada card de degradê. */
+    [].forEach.call(document.querySelectorAll('.grad'),function(card){
+      var b=document.createElement('button');b.type='button';b.className='dl-png';
+      b.setAttribute('aria-label','Baixar PNG em alta');
+      b.innerHTML='<svg aria-hidden="true"><use href="#i-download"/></svg>PNG';
+      card.appendChild(b);
+    });
     document.addEventListener('click',function(e){
       var lb=e.target.closest('.lg-btn');
       if(lb){
@@ -1081,6 +1266,16 @@
         if(lb.getAttribute('data-act')==='download'){downloadSVG((cell.getAttribute('data-name')||'logo')+'.svg',svg);flash('SVG baixado');}
         else{copy(svg,'o SVG');}
         markDone(lb);return;
+      }
+      var dp=e.target.closest('.dl-png');
+      if(dp){
+        var card=dp.closest('.grad');if(!card)return;
+        var key=[].find.call(card.classList,function(c){return /^(g|gl)-/.test(c);})||'gradiente';
+        gradToPNG(card,'facialclass-'+key,dp);return;
+      }
+      var ic=e.target.closest('.icell');
+      if(ic&&ic.getAttribute('data-icon')){
+        copy(buildIconSVG(ic.getAttribute('data-icon')),'o SVG do ícone');markDone(ic);return;
       }
       var el=e.target.closest('.hex,.fr-row .val,.code,.sw');if(!el)return;
       var text,label;
