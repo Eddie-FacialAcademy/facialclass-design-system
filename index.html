@@ -87,7 +87,7 @@
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.5;font-variant-numeric:tabular-nums}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
   .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--lilas);font-weight:600}
   .hl{color:var(--lilas)}
   code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
@@ -101,12 +101,12 @@
   }
 
   /* Toggle de tema (claro/escuro) */
-  .theme-toggle{position:fixed;top:18px;right:18px;z-index:var(--z-sticky);
+  .theme-toggle{position:relative;flex:0 0 auto;
     display:inline-flex;align-items:center;gap:8px;
     background:var(--card);border:1px solid var(--line);color:var(--txt);
     font:inherit;font-size:13px;font-weight:600;padding:9px 15px 9px 13px;
     border-radius:var(--radius-pill);cursor:pointer;
-    box-shadow:0 6px 22px var(--sh);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    box-shadow:none;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
     transition:transform var(--motion) var(--ease),border-color var(--motion),background var(--motion)}
   .theme-toggle:hover{border-color:var(--lilas);transform:translateY(-1px)}
   .theme-toggle .ti{width:17px;height:17px;flex:0 0 auto}
@@ -116,6 +116,17 @@
   .theme-toggle .lbl-d{display:none}
   [data-theme="light"] .theme-toggle .lbl-l{display:none}
   [data-theme="light"] .theme-toggle .lbl-d{display:inline}
+  html{scroll-behavior:smooth}
+  .topnav{position:sticky;top:0;z-index:var(--z-sticky);display:flex;align-items:center;gap:14px;padding:9px clamp(14px,4vw,40px);background:var(--card);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+  .tn-home{font-weight:600;font-size:14px;color:var(--txt);text-decoration:none;white-space:nowrap;flex:0 0 auto;letter-spacing:-.01em}
+  .tn-home:hover{color:var(--lilas)}
+  .tn-links{display:flex;align-items:center;gap:2px;overflow-x:auto;flex:1 1 auto;scrollbar-width:none;-ms-overflow-style:none}
+  .tn-links::-webkit-scrollbar{display:none}
+  .tn-links a{font-size:13px;color:var(--mut);text-decoration:none;padding:7px 12px;border-radius:var(--radius-pill);white-space:nowrap;transition:color var(--motion) var(--ease),background var(--motion) var(--ease)}
+  .tn-links a:hover{color:var(--txt);background:var(--card2)}
+  .tn-links a.active{color:var(--txt);background:var(--card2);font-weight:600;box-shadow:inset 0 -2px 0 var(--lilas)}
+  .tn-links a:focus-visible{outline:none;box-shadow:var(--focus)}
+  @media(max-width:560px){.tn-home{display:none}}
   @media(max-width:560px){.theme-toggle .lbl{display:none}.theme-toggle{padding:13px;min-width:44px;min-height:44px;justify-content:center;border-radius:50%}}
 
   /* Click-to-copy (cores, valores, blocos de código) */
@@ -139,13 +150,13 @@
   .logo .logo-mark{height:30px;width:auto;display:block}
   .logo .logo-sub{color:var(--mut);font-weight:300;font-size:15px;letter-spacing:0}
 
-  section{padding:56px 0;border-bottom:1px solid var(--line)}
-  .sec-title{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+  section{padding:clamp(54px,7vw,86px) 0;border-bottom:1px solid var(--line)}
+  .sec-title{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;scroll-margin-top:82px}
   .sec-title h2{font-size:26px;font-weight:500;letter-spacing:-.02em}
   .sec-title .num{font-size:13px;color:var(--mut);font-weight:600;font-family:ui-monospace,monospace}
-  .sec-note{color:var(--mut);font-weight:300;font-size:14.5px;max-width:640px;margin-bottom:30px}
+  .sec-note{color:var(--mut);font-weight:300;font-size:14.5px;max-width:660px;margin-bottom:40px;line-height:1.6}
 
-  .group-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600;margin:30px 0 14px}
+  .group-lbl{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:600;margin:48px 0 18px}
 
   /* SWATCHES */
   .sw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -462,6 +473,53 @@
   .states-tbl{width:100%;border-collapse:collapse;margin-top:11px;font-size:12.5px}
   .states-tbl th,.states-tbl td{text-align:left;padding:8px 12px;border-top:1px solid var(--line)}
   .states-tbl th{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600}
+  /* ===== Fase 3/4: feedback · overlays · estrutura ===== */
+  .alert{display:flex;gap:11px;align-items:flex-start;padding:13px 16px;border-radius:var(--radius-md);border:var(--bw-1) solid var(--line);background:var(--card);font-size:14px;color:var(--txt);line-height:1.45}
+  .alert svg{width:20px;height:20px;flex:0 0 auto;margin-top:1px} .alert b{font-weight:600}
+  .alert.ok{background:var(--success-bg);border-color:var(--success)} .alert.ok svg{color:var(--success)}
+  .alert.info{background:var(--info-bg);border-color:var(--info)} .alert.info svg{color:var(--info)}
+  .alert.warn{background:var(--warning-bg);border-color:var(--warning)} .alert.warn svg{color:var(--warning)}
+  .alert.err{background:var(--danger-bg);border-color:var(--danger)} .alert.err svg{color:var(--danger)}
+  .toast{display:inline-flex;gap:9px;align-items:center;padding:11px 16px;border-radius:var(--radius-pill);background:var(--card2);border:var(--bw-1) solid var(--line);box-shadow:var(--elev-overlay);font-size:13.5px;font-weight:500;color:var(--txt)}
+  .toast svg{width:16px;height:16px;flex:0 0 auto;color:var(--success)}
+  .spinner{width:28px;height:28px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--lilas);animation:spin .7s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .skel{background:linear-gradient(90deg,var(--card) 25%,var(--card2) 37%,var(--card) 63%);background-size:400% 100%;animation:shimmer 1.4s ease infinite;border-radius:8px}
+  @keyframes shimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+  .skel-card{width:240px;border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg);padding:16px;display:flex;flex-direction:column;gap:11px}
+  .empty{text-align:center;max-width:340px;display:flex;flex-direction:column;align-items:center;gap:11px;padding:30px 20px;border:1px dashed var(--line);border-radius:var(--radius-lg)}
+  .empty svg{width:38px;height:38px;color:var(--mut)} .empty h4{font-size:17px;font-weight:500;color:var(--txt)} .empty p{font-size:13.5px;color:var(--mut);line-height:1.5}
+  .modal-demo{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:var(--bw-1) solid var(--line);min-height:230px;background:var(--bg2);display:flex;align-items:center;justify-content:center;padding:24px}
+  .modal-scrim{position:absolute;inset:0;background:rgba(0,0,0,var(--opacity-overlay));-webkit-backdrop-filter:blur(var(--blur-sm));backdrop-filter:blur(var(--blur-sm))}
+  .modal{position:relative;width:min(380px,100%);background:var(--card);border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--elev-modal);padding:22px}
+  .modal h4{font-size:18px;font-weight:500;color:var(--txt);margin-bottom:8px} .modal p{font-size:14px;color:var(--mut);line-height:1.55;margin-bottom:18px}
+  .modal .m-row{display:flex;gap:10px;justify-content:flex-end}
+  .tip .bub{display:inline-block;background:var(--card2);border:var(--bw-1) solid var(--line);color:var(--txt);font-size:12.5px;padding:7px 11px;border-radius:var(--radius-sm);box-shadow:var(--elev-overlay)}
+  .pop{width:240px;background:var(--card);border:var(--bw-1) solid var(--line);border-radius:var(--radius-md);box-shadow:var(--elev-overlay);padding:14px;font-size:13px;color:var(--mut);line-height:1.5}
+  .pop b{color:var(--txt);font-weight:600;display:block;margin-bottom:5px;font-size:13.5px}
+  .tabs{display:flex;gap:4px;border-bottom:var(--bw-1) solid var(--line)}
+  .tab{font:inherit;font-size:14px;font-weight:500;color:var(--mut);background:none;border:none;border-bottom:2px solid transparent;padding:10px 14px;cursor:pointer;margin-bottom:-1px}
+  .tab.active{color:var(--lilas);border-bottom-color:var(--lilas)} .tab:focus-visible{outline:none;box-shadow:var(--focus);border-radius:6px 6px 0 0}
+  .tab-panel{padding:16px 2px;font-size:14px;color:var(--mut);line-height:1.6}
+  .acc{border:var(--bw-1) solid var(--line);border-radius:var(--radius-md);overflow:hidden}
+  .acc details{border-top:var(--bw-1) solid var(--line)} .acc details:first-child{border-top:none}
+  .acc summary{list-style:none;cursor:pointer;padding:14px 16px;font-size:14px;font-weight:500;color:var(--txt);display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .acc summary::-webkit-details-marker{display:none}
+  .acc summary svg{width:16px;height:16px;color:var(--mut);transition:transform .2s var(--ease);flex:0 0 auto}
+  .acc details[open] summary svg{transform:rotate(180deg)} .acc .acc-body{padding:0 16px 15px;font-size:13.5px;color:var(--mut);line-height:1.6}
+  .av{width:40px;height:40px;border-radius:50%;background:var(--card2);border:var(--bw-1) solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--txt);position:relative}
+  .av .dot{position:absolute;right:-1px;bottom:-1px;width:11px;height:11px;border-radius:50%;background:var(--success);border:2px solid var(--bg)}
+  .av-stack{display:inline-flex} .av-stack .av{margin-left:-12px;border:2px solid var(--bg)} .av-stack .av:first-child{margin-left:0}
+  .crumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);flex-wrap:wrap}
+  .crumb a{color:var(--mut);text-decoration:none} .crumb a:hover{color:var(--lilas)} .crumb .sep{opacity:.5} .crumb .cur{color:var(--txt);font-weight:500}
+  .pager{display:flex;gap:6px;align-items:center}
+  .pg{min-width:36px;height:36px;border-radius:var(--radius-sm);border:var(--bw-1) solid var(--line);background:var(--card);color:var(--txt);font:inherit;font-size:13px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+  .pg.active{background:transparent;border-color:var(--lilas);color:var(--lilas);font-weight:600} .pg:disabled{opacity:var(--opacity-disabled);cursor:not-allowed} .pg:focus-visible{outline:none;box-shadow:var(--focus)}
+  .cardv{background:var(--card);border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg);padding:18px}
+  .cardv.inter{cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease)} .cardv.inter:hover{transform:translateY(-3px);box-shadow:var(--elev-overlay)}
+  .cardv h4{font-size:16px;font-weight:500;color:var(--txt);margin-bottom:6px} .cardv p{font-size:13.5px;color:var(--mut);line-height:1.55}
+  .cardv-media .media{height:92px;background:linear-gradient(120deg,var(--gold),var(--rose))} .cardv-media .body{padding:16px}
+  .card-h{display:flex;gap:14px;align-items:center} .card-h .thumb{width:54px;height:54px;border-radius:var(--radius-md);background:linear-gradient(120deg,var(--gold),var(--rose));flex:0 0 auto}
   .states-tbl td{color:var(--txt)} .states-tbl td:first-child{color:var(--mut);font-family:ui-monospace,monospace}
   .fnd-touch{width:44px;height:44px;border:1px dashed var(--mut);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--mut)}
   @media(max-width:820px){.fund-grid{grid-template-columns:1fr}}
@@ -604,13 +662,30 @@
   <symbol id="ph-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="6" width="17" height="12" rx="1.8"/><path d="M3.5 10h17M6.5 14.5h3.5"/></symbol>
 </defs></svg>
 
+<nav class="topnav" aria-label="Seções do design system">
+  <a class="tn-home" href="#top">Facial Class</a>
+  <div class="tn-links">
+    <a href="#nav-marca">Marca</a>
+    <a href="#nav-cores">Cores</a>
+    <a href="#nav-gradientes">Gradientes</a>
+    <a href="#nav-tipografia">Tipografia</a>
+    <a href="#nav-botoes">Botões</a>
+    <a href="#nav-icones">Ícones</a>
+    <a href="#nav-a11y">A11y</a>
+    <a href="#nav-sistema">Sistema</a>
+    <a href="#nav-tokens">Tokens</a>
+    <a href="#nav-feedback">Feedback</a>
+    <a href="#nav-estrutura">Estrutura</a>
+    <a href="#nav-processo">Processo</a>
+  </div>
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro e escuro" aria-pressed="false">
   <svg class="ti sun" aria-hidden="true"><use href="#i-sun"/></svg>
   <svg class="ti moon" aria-hidden="true"><use href="#i-moon"/></svg>
   <span class="lbl"><span class="lbl-l">Claro</span><span class="lbl-d">Escuro</span></span>
 </button>
+</nav>
 
-<header><div class="wrap">
+<header id="top"><div class="wrap">
   <a class="logo" href="https://www.facialacademy.com.br" aria-label="Facial Class"><svg class="logo-mark" viewBox="0 0 720 140" aria-hidden="true"><use href="#logo-hor"/></svg><span class="logo-sub">· brand system</span></a>
   <span class="eyebrow" style="display:block;margin-top:30px">Design system · derivado do brandbook Facial Academy 2022</span>
   <h1>Cores e tipografia <span class="hl">reutilizáveis</span>.</h1>
@@ -619,7 +694,7 @@
 
 <!-- 01 MARCA & LOGO -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">01</span><h2>Marca &amp; logo</h2></div>
+  <div class="sec-title" id="nav-marca"><span class="num">01</span><h2>Marca &amp; logo</h2></div>
   <p class="sec-note">Quatro composições oficiais — horizontal, vertical, tipografia e ícone — em três cores (branco, preto, roxo). No site, a marca troca sozinha com o tema: <b class="hl">branca</b> sobre fundo escuro, <b class="hl">roxa</b> sobre fundo claro. Use sempre o SVG e nunca recolora fora destas três opções.</p>
 
   <div class="group-lbl">Composições</div>
@@ -674,7 +749,7 @@
 
 <!-- 02 CORES -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">02</span><h2>Cores</h2></div>
+  <div class="sec-title" id="nav-cores"><span class="num">02</span><h2>Cores</h2></div>
   <p class="sec-note">As 7 cores institucionais são a base. Tudo o que aparece na landing deriva delas. Nenhuma cor é inventada fora deste conjunto.</p>
 
   <div class="group-lbl">Institucionais (brandbook §3.3)</div>
@@ -766,7 +841,7 @@
 
 <!-- 02 GRADIENTES -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">03</span><h2>Gradientes</h2></div>
+  <div class="sec-title" id="nav-gradientes"><span class="num">03</span><h2>Gradientes</h2></div>
   <p class="sec-note">Biblioteca de gradientes, do funcional ao abstrato, montados só com cores do brand. Fundo de seção, card de destaque ou bloco hero.</p>
   <div class="group-lbl">Dark · funcionais</div>
   <div class="grad-grid">
@@ -817,7 +892,7 @@
 
 <!-- 03 TIPOGRAFIA -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">04</span><h2>Tipografia</h2></div>
+  <div class="sec-title" id="nav-tipografia"><span class="num">04</span><h2>Tipografia</h2></div>
   <p class="sec-note">Fonte institucional: <b class="hl">Silka</b> (do brandbook, disponível no Framer). <b class="hl">Fallback: Poppins</b> — quando a Silka não estiver disponível (outro projeto/ferramenta), use Poppins; só então cai em system-ui. Pesos: 300 / 400 / 500 / 600 / 700.</p>
 
   <div class="type-row">
@@ -891,7 +966,7 @@
 
 <!-- 04 BOTÕES & COMPONENTES -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">05</span><h2>Botões &amp; componentes</h2></div>
+  <div class="sec-title" id="nav-botoes"><span class="num">05</span><h2>Botões &amp; componentes</h2></div>
   <p class="sec-note">Um único componente de botão com variantes (preenchido, sólido, contorno, inline/texto, dourado e dourado contorno), tamanhos (sm/md/lg), ícone opcional (lado esquerdo ou direito) e estado desabilitado. Ícones: biblioteca <b class="hl">Phosphor</b> no Framer (aqui demonstrado com ArrowRight). Raio 30px.</p>
 
   <div class="btn-tbl">
@@ -993,7 +1068,7 @@
 
 <!-- 06 ÍCONES -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">06</span><h2>Ícones</h2></div>
+  <div class="sec-title" id="nav-icones"><span class="num">06</span><h2>Ícones</h2></div>
   <p class="sec-note">Biblioteca única: <b class="hl">Phosphor</b> (disponível nativamente no Framer). Peso padrão <b class="hl">Thin</b> — traço de <b class="hl">1&nbsp;pt</b> (stroke 1 na grade de 24), pontas e junções arredondadas. Cor por <code>currentColor</code> (herda o texto / accent), então acompanha o tema. Nunca misture pesos diferentes na mesma tela e nunca use emoji como ícone.</p>
 
   <p class="sec-note" style="margin-top:-14px">Conjunto de sistema desenhado na grade 24. <b class="hl">Clique em qualquer ícone para copiar o SVG.</b> Para o catálogo completo, use o link da Phosphor no fim da seção.</p>
@@ -1097,7 +1172,7 @@
 
 <!-- 05 ACESSIBILIDADE -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">07</span><h2>Acessibilidade &amp; contraste</h2></div>
+  <div class="sec-title" id="nav-a11y"><span class="num">07</span><h2>Acessibilidade &amp; contraste</h2></div>
   <p class="sec-note">Todas as combinações de texto/fundo atendem ao <b class="hl">WCAG 2.1 AA</b> (≥ 4.5:1 para texto normal; ≥ 3:1 para texto grande e elementos de UI). Razões medidas:</p>
   <div class="a11y">
     <div class="a11y-col">
@@ -1125,7 +1200,7 @@
 <!-- 06 TOKENS -->
 <!-- 08 FUNDAMENTOS -->
 <section><div class="wrap">
-  <div class="sec-title"><span class="num">08</span><h2>Fundamentos do sistema</h2></div>
+  <div class="sec-title" id="nav-sistema"><span class="num">08</span><h2>Fundamentos do sistema</h2></div>
   <p class="sec-note">Espaçamento, raio, elevação e movimento — a base que mantém ritmo e profundidade consistentes. Todos estão nas CSS variables (seção 09) prontos para colar no Framer.</p>
   <div class="fund-grid">
     <div>
@@ -1222,7 +1297,7 @@
 
 <!-- 09 TOKENS -->
 <section style="border-bottom:none"><div class="wrap">
-  <div class="sec-title"><span class="num">09</span><h2>Tokens para copiar</h2></div>
+  <div class="sec-title" id="nav-tokens"><span class="num">09</span><h2>Tokens para copiar</h2></div>
   <p class="sec-note">Cole as CSS variables em um Code Component / override do Framer, ou use a tabela JSON para criar os Color Styles e Text Styles manualmente. Inclui os dois temas: <b class="hl">dark</b> (padrão) e <b class="hl">light</b> (classe <code>.light</code>).</p>
 
   <div class="group-lbl">CSS variables</div>
@@ -1345,6 +1420,67 @@
   <p class="sec-note" style="margin-top:16px;font-size:12.5px">Refs Framer: <a href="https://www.framer.com/help/articles/light-and-dark-mode-options/" style="color:var(--lilas)">Light and dark mode options</a> &middot; <a href="https://www.framer.com/academy/lessons/light-dark-mode" style="color:var(--lilas)">Academy: Light &amp; Dark Mode</a></p>
 </div></section>
 
+<section id="sec-feedback"><div class="wrap">
+  <div class="sec-title" id="nav-feedback"><span class="num">10</span><h2>Feedback &amp; overlays</h2></div>
+  <p class="sec-note">Comunicação de estado: alerts inline, toasts transitórios, carregamento (spinner/skeleton), vazio e camadas sobrepostas (modal, tooltip, popover). Sempre ícone + texto, nunca cor sozinha.</p>
+  <div class="group-lbl">Alerts (inline)</div>
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:560px">
+    <div class="alert ok"><svg aria-hidden="true"><use href="#ph-check"/></svg><div><b>Tudo certo.</b> Sua assinatura foi confirmada.</div></div>
+    <div class="alert info"><svg aria-hidden="true"><use href="#ph-info"/></svg><div><b>Dica.</b> Você pode trocar de plano quando quiser.</div></div>
+    <div class="alert warn"><svg aria-hidden="true"><use href="#ph-warn"/></svg><div><b>Atenção.</b> Seu cartão vence em 3 dias.</div></div>
+    <div class="alert err"><svg aria-hidden="true"><use href="#ph-x"/></svg><div><b>Erro.</b> Não foi possível processar o pagamento.</div></div>
+  </div>
+  <div class="group-lbl">Toast · Spinner · Skeleton</div>
+  <div class="comp-row" style="gap:30px;align-items:center">
+    <span class="toast"><svg aria-hidden="true"><use href="#i-check"/></svg> Salvo com sucesso</span>
+    <span class="spinner" role="status" aria-label="Carregando"></span>
+    <div class="skel-card"><div class="skel" style="height:60px"></div><div class="skel" style="height:12px;width:80%"></div><div class="skel" style="height:12px;width:55%"></div></div>
+  </div>
+  <div class="group-lbl">Empty state</div>
+  <div class="empty"><svg aria-hidden="true"><use href="#ph-folder"/></svg><h4>Nada por aqui ainda</h4><p>Quando você adicionar conteúdo, ele aparece nesta área.</p><button class="b sm fill">Adicionar</button></div>
+  <div class="group-lbl">Modal · Tooltip · Popover</div>
+  <div class="modal-demo"><div class="modal-scrim"></div><div class="modal"><h4>Confirmar cancelamento?</h4><p>Você perde o acesso ao final do período já pago — dá pra reativar depois.</p><div class="m-row"><button class="b sm outline">Voltar</button><button class="b sm fill">Confirmar</button></div></div></div>
+  <div class="comp-row" style="gap:36px;margin-top:18px;align-items:flex-start">
+    <span class="tip"><span class="bub">Dica rápida sobre o campo</span></span>
+    <div class="pop"><b>Filtrar por</b>Combine especialidade, nível e duração pra achar a aula certa.</div>
+  </div>
+</div></section>
+
+<section id="sec-estrutura"><div class="wrap">
+  <div class="sec-title" id="nav-estrutura"><span class="num">11</span><h2>Estrutura &amp; navegação</h2></div>
+  <p class="sec-note">Organização e navegação: abas, acordeão, avatares, breadcrumb, paginação e variantes de card.</p>
+  <div class="group-lbl">Tabs</div>
+  <div><div class="tabs"><button class="tab active">Visão geral</button><button class="tab">Aulas</button><button class="tab">Materiais</button></div><div class="tab-panel">Conteúdo da aba ativa. No produto: <code>aria-selected</code> + navegação por setas do teclado.</div></div>
+  <div class="group-lbl">Accordion</div>
+  <div class="acc" style="max-width:560px"><details open><summary>O que está incluído? <svg aria-hidden="true"><use href="#ph-caret"/></svg></summary><div class="acc-body">Acesso a todas as aulas, materiais em PDF e certificado de conclusão.</div></details><details><summary>Posso cancelar? <svg aria-hidden="true"><use href="#ph-caret"/></svg></summary><div class="acc-body">Sim, dentro do período de garantia de 7 dias.</div></details></div>
+  <div class="group-lbl">Avatar</div>
+  <div class="comp-row" style="gap:18px;align-items:center"><span class="av">EJ</span><span class="av">AC<span class="dot"></span></span><span class="av-stack"><span class="av">A</span><span class="av">B</span><span class="av">C</span><span class="av">+5</span></span></div>
+  <div class="group-lbl">Breadcrumb · Paginação</div>
+  <nav class="crumb"><a href="#">Início</a><span class="sep">/</span><a href="#">Cursos</a><span class="sep">/</span><span class="cur">Celulite PRO</span></nav>
+  <div class="pager" style="margin-top:14px"><button class="pg" disabled aria-label="Anterior">‹</button><button class="pg active">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg" aria-label="Próxima">›</button></div>
+  <div class="group-lbl">Card · variantes</div>
+  <div class="form-grid">
+    <div class="cardv"><h4>Card básico</h4><p>Superfície com borda e raio padrão.</p></div>
+    <div class="cardv inter"><h4>Card interativo</h4><p>Hover com elevação — passe o mouse.</p></div>
+    <div class="cardv cardv-media" style="padding:0"><div class="media"></div><div class="body"><h4>Card com mídia</h4><p>Imagem/gradiente no topo.</p></div></div>
+    <div class="cardv"><div class="card-h"><span class="thumb"></span><div><h4 style="margin:0 0 4px">Card horizontal</h4><p>Thumb + texto.</p></div></div></div>
+  </div>
+</div></section>
+
+<section id="sec-processo"><div class="wrap">
+  <div class="sec-title" id="nav-processo"><span class="num">12</span><h2>Princípios &amp; processo</h2></div>
+  <p class="sec-note">A camada de maturidade: como o sistema é pensado, versionado e mantido — o que separa um kit de um sistema vivo.</p>
+  <div class="group-lbl">Arquitetura de tokens (3 camadas)</div>
+  <p class="sec-note" style="margin-bottom:10px">Tokens fluem em <b class="hl">primitive → semantic/intent → component</b>. Regra de ouro: <b class="hl">o token semântico nunca sugere valor</b> (<code>--btn-bg</code>, não <code>--azul-500</code>); o de componente referencia o semântico, nunca o primitivo direto. É o que torna theming e rebrand triviais.</p>
+  <table class="states-tbl" style="max-width:620px"><thead><tr><th>Camada</th><th>Exemplo</th><th>Papel</th></tr></thead><tbody><tr><td>primitive</td><td>#hex · 16px</td><td>Valor cru, sem contexto.</td></tr><tr><td>semantic</td><td>--accent · --space-4</td><td>Intenção / uso.</td></tr><tr><td>component</td><td>--btn-bg</td><td>Aplicação no componente.</td></tr></tbody></table>
+  <div class="group-lbl">Princípios de motion</div>
+  <p class="sec-note" style="margin-bottom:0">Anime com <b class="hl">propósito</b> (feedback, orientação, continuidade) — nunca decorativo. Durações nos tokens (<code>--motion-fast .15 · --motion .2 · --motion-slow .4</code>), curva <code>--ease</code>. Respeite <code>prefers-reduced-motion</code> (já no reset). Não anime: layout shift nem texto de leitura.</p>
+  <div class="group-lbl">Versionamento &amp; contribuição</div>
+  <p class="sec-note" style="margin-bottom:0"><b class="hl">SemVer</b> (MAJOR.MINOR.PATCH) + <code>CHANGELOG.md</code> + política de depreciação. Contribuição: <b class="hl">regra das 3 equipes</b> (só vira padrão o que serve 3+ usos) + revisão antes de virar componente. Ver <code>CONTRIBUTING.md</code> no pacote.</p>
+  <div class="group-lbl">Faça / Não faça</div>
+  <div class="logo-rules"><div class="lr ok"><b>Faça</b><ul><li>Consumir tokens (nunca hex solto).</li><li>Dark + light em paridade, contraste WCAG AA.</li><li>Ícone + texto nos estados (cor nunca sozinha).</li><li>Foco visível em tudo que é focável.</li></ul></div><div class="lr no"><b>Não faça</b><ul><li>Cor / raio / sombra fora dos tokens.</li><li>Texto claro sem contraste no light.</li><li>Animar sem propósito ou ignorar reduced-motion.</li><li>Botão <code>&lt;a&gt;</code> sem href.</li></ul></div></div>
+</div></section>
+
 <footer><div class="wrap">Facial Class · Design System · <b class="hl">desenvolvido por Edegar Junior</b>. Cores derivadas do brandbook Facial Academy (Studio Bah, 07/2022). Tipografia: Silka (fallback system-ui).</div></footer>
 
 <script>
@@ -1458,4 +1594,21 @@
   })();
 </script>
 
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll(".tn-links a"));
+  if(!links.length)return;
+  var map={};links.forEach(function(a){map[a.getAttribute("href").slice(1)]=a});
+  var cont=document.querySelector(".tn-links");
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      links.forEach(function(x){x.classList.remove("active")});
+      var a=map[e.target.id];
+      if(a){a.classList.add("active");var ar=a.getBoundingClientRect(),cr=cont.getBoundingClientRect();cont.scrollLeft+=(ar.left-cr.left)-60;}
+    });
+  },{rootMargin:"-78px 0px -68% 0px",threshold:0});
+  Object.keys(map).forEach(function(id){var t=document.getElementById(id);if(t)io.observe(t)});
+})();
+</script>
 </body></html>

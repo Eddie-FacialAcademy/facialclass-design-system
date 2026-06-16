@@ -14,6 +14,8 @@ Sistema de design portátil para web (HTML/CSS, React, Framer). Dark por padrão
 | `Button.tsx` | Code Component Framer/React do botão, com Property Controls. |
 | `THEME.md` | Como o claro/escuro é configurado e **ativado pelo tema do sistema** do visitante (web + Framer). |
 | `DESIGN-SYSTEM.md` | Este documento (spec + como usar + prompt para IA). |
+| `CHANGELOG.md` | Histórico de versões (Keep a Changelog + SemVer). |
+| `CONTRIBUTING.md` | Governança: como o sistema evolui (regra das 3 equipes, gate de pronto, SemVer, depreciação). |
 | `../facialclass-brand-system.html` | Showcase visual navegável (todas as cores, gradientes, tipografia, ícones e componentes ao vivo, com click-to-copy). |
 
 ---
@@ -193,6 +195,12 @@ Sempre **ícone + texto**, nunca só cor. Verde/âmbar/vermelho saem da paleta d
 ## Faça / Não faça
 ✅ Consumir tokens · dark+light em paridade · Silka · Phosphor Thin · meshes do brand · foco visível.
 🚫 Hex solto nos componentes · cor fora das 7 institucionais · conic/blob/halo · emoji como ícone · texto dourado claro no light (usar `-ink`) · botão `<a>` sem href.
+
+---
+
+## Processo & versionamento
+
+O sistema evolui sob governança: veja **`CONTRIBUTING.md`** (princípios, regra das 3 equipes, gate de "pronto", SemVer e depreciação) e o **`CHANGELOG.md`** (histórico de versões). Regra de ouro dos tokens: `primitive → semantic/intent → component`, e o token semântico **nunca sugere valor**.
 
 ---
 
