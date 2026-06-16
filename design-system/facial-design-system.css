@@ -48,10 +48,11 @@
 
   /* Sombras / elevação */
   --sh:rgba(100,67,137,.40); --sh-strong:rgba(100,67,137,.50);
-  --elev-1:0 2px 8px rgba(0,0,0,.40);
-  --elev-2:0 6px 18px rgba(0,0,0,.46);
-  --elev-3:0 14px 36px rgba(100,67,137,.46);
-  --elev-4:0 26px 60px rgba(100,67,137,.55);
+  --elev-1:0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30);
+  --elev-2:0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40);
+  --elev-3:0 4px 10px rgba(100,67,137,.30), 0 16px 36px rgba(100,67,137,.42);
+  --elev-4:0 8px 20px rgba(100,67,137,.34), 0 28px 60px rgba(100,67,137,.52);
+  --elev-raised:var(--elev-1); --elev-overlay:var(--elev-3); --elev-modal:var(--elev-4);
 
   /* Raio · espaçamento (base 4/8) · z-index · motion · foco */
   --radius-sm:8px; --radius-md:14px; --radius-lg:18px; --radius-pill:30px;
@@ -59,6 +60,13 @@
   --z-base:0; --z-raised:10; --z-sticky:40; --z-overlay:100; --z-toast:1000;
   --motion-fast:.15s; --motion:.2s; --motion-slow:.4s; --ease:cubic-bezier(.2,.8,.2,1);
   --focus:0 0 0 3px rgba(162,137,215,.55);
+  /* Foundations: opacidade · borda · blur · breakpoints · sizing · proporção */
+  --opacity-disabled:.45; --opacity-muted:.66; --opacity-hover:.08; --opacity-overlay:.58;
+  --bw-hair:1px; --bw-1:1px; --bw-2:2px;
+  --blur-sm:6px; --blur-md:12px; --blur-lg:20px;
+  --bp-phone:390px; --bp-tablet:810px; --bp-desktop:1200px;
+  --size-icon-sm:16px; --size-icon:20px; --size-icon-lg:24px; --control-h:44px; --touch-min:44px;
+  --ar-square:1/1; --ar-photo:4/3; --ar-wide:16/9;
 
   /* Code (permanece escuro nos dois temas) */
   --code-bg:#060408; --code-txt:#B39EDE; --code-comment:#8E7DB2; --code-key:#FFE4A4;
@@ -83,8 +91,8 @@
     --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
     --danger-bg:rgba(199,47,73,.10); --info-bg:rgba(94,74,140,.10);
     --sh:rgba(100,67,137,.18); --sh-strong:rgba(100,67,137,.26);
-    --elev-1:0 2px 6px rgba(100,67,137,.08); --elev-2:0 6px 16px rgba(100,67,137,.12);
-    --elev-3:0 14px 32px rgba(100,67,137,.16); --elev-4:0 26px 56px rgba(100,67,137,.22);
+    --elev-1:0 1px 2px rgba(100,67,137,.10), 0 2px 6px rgba(100,67,137,.08); --elev-2:0 2px 4px rgba(100,67,137,.10), 0 8px 16px rgba(100,67,137,.12);
+    --elev-3:0 4px 10px rgba(100,67,137,.12), 0 16px 32px rgba(100,67,137,.16); --elev-4:0 8px 18px rgba(100,67,137,.14), 0 28px 56px rgba(100,67,137,.22);
     color-scheme:light;
   }
 }
@@ -102,8 +110,8 @@
   --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
   --danger-bg:rgba(199,47,73,.10); --info-bg:rgba(94,74,140,.10);
   --sh:rgba(100,67,137,.18); --sh-strong:rgba(100,67,137,.26);
-  --elev-1:0 2px 6px rgba(100,67,137,.08); --elev-2:0 6px 16px rgba(100,67,137,.12);
-  --elev-3:0 14px 32px rgba(100,67,137,.16); --elev-4:0 26px 56px rgba(100,67,137,.22);
+  --elev-1:0 1px 2px rgba(100,67,137,.10), 0 2px 6px rgba(100,67,137,.08); --elev-2:0 2px 4px rgba(100,67,137,.10), 0 8px 16px rgba(100,67,137,.12);
+  --elev-3:0 4px 10px rgba(100,67,137,.12), 0 16px 32px rgba(100,67,137,.16); --elev-4:0 8px 18px rgba(100,67,137,.14), 0 28px 56px rgba(100,67,137,.22);
   --logo:#644389;
   color-scheme:light;
 }

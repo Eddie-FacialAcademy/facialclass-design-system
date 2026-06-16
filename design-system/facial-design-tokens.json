@@ -44,17 +44,26 @@
   },
 
   "elevation": {
+    "roles": { "raised": "1", "overlay": "3", "modal": "4" },
     "dark": {
-      "1": "0 2px 8px rgba(0,0,0,.40)", "2": "0 6px 18px rgba(0,0,0,.46)",
-      "3": "0 14px 36px rgba(100,67,137,.46)", "4": "0 26px 60px rgba(100,67,137,.55)"
+      "1": "0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30)", "2": "0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40)",
+      "3": "0 4px 10px rgba(100,67,137,.30), 0 16px 36px rgba(100,67,137,.42)", "4": "0 8px 20px rgba(100,67,137,.34), 0 28px 60px rgba(100,67,137,.52)"
     },
     "light": {
-      "1": "0 2px 6px rgba(100,67,137,.08)", "2": "0 6px 16px rgba(100,67,137,.12)",
-      "3": "0 14px 32px rgba(100,67,137,.16)", "4": "0 26px 56px rgba(100,67,137,.22)"
+      "1": "0 1px 2px rgba(100,67,137,.10), 0 2px 6px rgba(100,67,137,.08)", "2": "0 2px 4px rgba(100,67,137,.10), 0 8px 16px rgba(100,67,137,.12)",
+      "3": "0 4px 10px rgba(100,67,137,.12), 0 16px 32px rgba(100,67,137,.16)", "4": "0 8px 18px rgba(100,67,137,.14), 0 28px 56px rgba(100,67,137,.22)"
     }
   },
 
   "radius": { "sm": "8px", "md": "14px", "lg": "18px", "pill": "30px" },
+  "foundations": {
+    "opacity": { "disabled": 0.45, "muted": 0.66, "hover": 0.08, "overlay": 0.58 },
+    "borderWidth": { "hair": "1px", "1": "1px", "2": "2px" },
+    "blur": { "sm": "6px", "md": "12px", "lg": "20px" },
+    "breakpoint": { "phone": "390px", "tablet": "810px", "desktop": "1200px" },
+    "size": { "iconSm": "16px", "icon": "20px", "iconLg": "24px", "controlH": "44px", "touchMin": "44px" },
+    "aspectRatio": { "square": "1/1", "photo": "4/3", "wide": "16/9" }
+  },
   "space":  { "1": "4px", "2": "8px", "3": "12px", "4": "16px", "6": "24px", "8": "32px", "12": "48px" },
   "zIndex": { "base": 0, "raised": 10, "sticky": 40, "overlay": 100, "toast": 1000 },
   "motion": { "fast": "0.15s", "base": "0.2s", "slow": "0.4s", "ease": "cubic-bezier(.2,.8,.2,1)" },
