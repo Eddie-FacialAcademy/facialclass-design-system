@@ -85,6 +85,37 @@
     color-scheme:light;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;line-height:1.5;font-variant-numeric:tabular-nums}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--lilas);font-weight:600}
+  .hl{color:var(--lilas)}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  /* Acessibilidade: foco visível + movimento reduzido */
+  .b:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus)}
+  @media (forced-colors: active){.b:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid Highlight;outline-offset:2px}}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  }
+
+  /* Toggle de tema (claro/escuro) */
+  .theme-toggle{position:relative;flex:0 0 auto;
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--line);color:var(--txt);
+    font:inherit;font-size:13px;font-weight:600;padding:9px 15px 9px 13px;
+    border-radius:var(--radius-pill);cursor:pointer;
+    box-shadow:none;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    transition:transform var(--motion) var(--ease),border-color var(--motion),background var(--motion)}
+  .theme-toggle:hover{border-color:var(--lilas);transform:translateY(-1px)}
+  .theme-toggle .ti{width:17px;height:17px;flex:0 0 auto}
+  .theme-toggle .moon{display:none}
+  [data-theme="light"] .theme-toggle .sun{display:none}
+  [data-theme="light"] .theme-toggle .moon{display:block}
+  .theme-toggle .lbl-d{display:none}
+  [data-theme="light"] .theme-toggle .lbl-l{display:none}
+  [data-theme="light"] .theme-toggle .lbl-d{display:inline}
+
   html{scroll-behavior:smooth}
   .topnav{position:sticky;top:0;z-index:var(--z-sticky);background:var(--card);border-bottom:1px solid var(--line)}
   .tn-inner{display:flex;align-items:center;gap:16px;height:56px}
