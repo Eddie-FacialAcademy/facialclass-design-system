@@ -31,7 +31,7 @@
   /* Roxo / lilás / texto */
   --roxo:#3A274F; --roxo2:var(--brand-roxo); --roxo-bright:#7C5EA7;
   --lilas:var(--brand-lilas); --lilas-soft:#B39EDE;
-  --txt:#F9F8FD; --mut:#8E7DB2; --legal-mut:#826DAD;
+  --txt:#F9F8FD; --mut:#C2BAD0; --legal-mut:#826DAD;
 
   /* Accent quente (-ink = variante de texto; -line = variante de borda) */
   --gold:var(--brand-amarelo); --gold-deep:#D6C08A; --gold-ink:#FFE4A4; --gold-line:rgba(255,228,164,.42);
