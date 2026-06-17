@@ -814,6 +814,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
           <a role="menuitem" href="#nav-a11y">Acessibilidade e contraste</a>
           <a role="menuitem" href="#nav-sistema">Fundamentos do sistema</a>
           <a role="menuitem" href="#nav-processo">Princípios e processo</a>
+          <a role="menuitem" href="#nav-voz">Voz e tom</a>
           <a role="menuitem" href="#nav-tokens">Tokens</a>
         </div>
       </div>
@@ -1620,9 +1621,62 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <div class="logo-rules"><div class="lr ok"><b>Faça</b><ul><li>Consumir tokens (nunca hex solto).</li><li>Escuro + claro em paridade, contraste WCAG AA.</li><li>Ícone + texto nos estados (cor nunca sozinha).</li><li>Foco visível em tudo que é focável.</li></ul></div><div class="lr no"><b>Não faça</b><ul><li>Cor / raio / sombra fora dos tokens.</li><li>Texto claro sem contraste no light.</li><li>Animar sem propósito ou ignorar reduced-motion.</li><li>Botão <code>&lt;a&gt;</code> sem href.</li></ul></div></div>
 </div></section>
 
+<!-- 13 VOZ E TOM -->
+<section id="sec-voz"><div class="wrap">
+  <div class="sec-title" id="nav-voz"><span class="num">13</span><h2>Voz e tom</h2></div>
+  <p class="sec-note">A camada de copy do sistema: como o produto escreve. <b class="hl">Builder para builder</b>, técnica, direta e antiimproviso, sem hipérbole nem happy talk. Guia completo no pacote (<code>voz-e-tom.md</code>) e os termos de cada marca em <code>glossario-marca.md</code>.</p>
+  <div class="group-lbl">Adjetivos da voz</div>
+  <div class="comp-row" style="gap:10px;flex-wrap:wrap"><span class="badge-mini">Técnica</span><span class="badge-mini">Direta</span><span class="badge-mini">Confiante</span><span class="badge-mini">Precisa</span><span class="badge-mini">Antiimproviso</span></div>
+  <div class="group-lbl">Faça / Não faça</div>
+  <div class="logo-rules">
+    <div class="lr ok"><b>Faça</b><ul><li>O rótulo diz a ação ("Salvar protocolo", não "Enviar").</li><li>No erro, diga o que houve e o próximo passo.</li><li>Voz ativa, frases curtas, pt-BR.</li><li>Ícone e texto juntos: a cor não comunica sozinha.</li></ul></div>
+    <div class="lr no"><b>Não faça</b><ul><li>Usar &amp;: escreva a palavra "e".</li><li>Travessão (— nem –): use vírgula, dois-pontos ou parênteses.</li><li>Hipérbole ("a melhor", "incrível") ou happy talk ("Bem-vindo!").</li><li>Misturar domínio entre marcas.</li></ul></div>
+  </div>
+  <div class="group-lbl">Estrangeirismos</div>
+  <div class="a11y">
+    <div class="a11y-col">
+      <div class="a11y-h">Traduzir (tem equivalente limpo)</div>
+      <div class="a11y-row"><span>data table</span><span>tabela de dados</span></div>
+      <div class="a11y-row"><span>command palette</span><span>paleta de comandos</span></div>
+      <div class="a11y-row"><span>date picker</span><span>seletor de data</span></div>
+      <div class="a11y-row"><span>modal, tooltip, popover</span><span>janela modal, dica, balão</span></div>
+      <div class="a11y-row"><span>toast, breadcrumb, card</span><span>notificação, trilha, cartão</span></div>
+    </div>
+    <div class="a11y-col">
+      <div class="a11y-h">Manter (nome próprio ou código)</div>
+      <div class="a11y-row"><span>token, hover, link, avatar, pill</span></div>
+      <div class="a11y-row"><span>Framer, Code Component, Color/Text Style</span></div>
+      <div class="a11y-row"><span>CSS, JSON, SVG, PNG</span></div>
+      <div class="a11y-row"><span>WCAG, SemVer, Silka, Phosphor</span></div>
+      <div class="a11y-row"><span>currentColor, clamp()</span></div>
+    </div>
+  </div>
+  <div class="group-lbl">Separação de domínio</div>
+  <p class="sec-note">Cada marca só fala do próprio domínio. Os termos específicos ficam em <code>glossario-marca.md</code> (um por marca) e <b class="hl">nunca cruzam</b> para outro design system. Na dúvida, erre para o neutro (corpo de texto, preenchimento de cor, token, cartão), nunca para o domínio de outra marca.</p>
+  <div class="group-lbl">Microcopy modelo</div>
+  <div class="a11y">
+    <div class="a11y-col">
+      <div class="a11y-h">Interface</div>
+      <div class="a11y-row"><span>Botão</span><span>Salvar protocolo</span></div>
+      <div class="a11y-row"><span>Estado vazio</span><span>Nenhum item ainda. Crie o primeiro.</span></div>
+      <div class="a11y-row"><span>Sucesso</span><span>Salvo. Já está na trilha.</span></div>
+      <div class="a11y-row"><span>Erro</span><span>Não foi possível salvar. Tente de novo.</span></div>
+      <div class="a11y-row"><span>Destrutivo</span><span>Remover item? Não tem volta.</span></div>
+    </div>
+    <div class="a11y-col">
+      <div class="a11y-h">Regras rápidas</div>
+      <div class="a11y-row"><span>Erro diz o que houve e como resolver.</span></div>
+      <div class="a11y-row"><span>Rótulo de botão é a ação, não o genérico.</span></div>
+      <div class="a11y-row"><span>Números com função tabular.</span></div>
+      <div class="a11y-row"><span>Experts: conteúdo editorial, fora da UI.</span></div>
+      <div class="a11y-row"><span>Nomes de marca por extenso.</span></div>
+    </div>
+  </div>
+</div></section>
+
 <!-- 12 TOKENS PARA COPIAR -->
 <section style="border-bottom:none"><div class="wrap">
-  <div class="sec-title" id="nav-tokens"><span class="num">13</span><h2>Tokens para copiar</h2></div>
+  <div class="sec-title" id="nav-tokens"><span class="num">14</span><h2>Tokens para copiar</h2></div>
   <p class="sec-note">Valores legíveis por máquina para tema, espaçamento, raio, elevação e movimento. O componente lê o token, não o valor solto.</p>
 
   <div class="group-lbl">Variáveis CSS</div>

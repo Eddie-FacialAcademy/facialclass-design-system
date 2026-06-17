@@ -14,6 +14,12 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
+## [1.4.0] — 2026-06-17
+### Adicionado
+- Nova seção "Voz e tom" (13) no showcase, no grupo Sistema do menu: as regras de copy renderizadas na página (adjetivos da voz, faça/não faça, estrangeirismos traduzir/manter, separação de domínio, microcopy modelo). Espelha o guia do pacote `voz-e-tom.md`. WCAG 0 falhas nos dois temas.
+### Alterado
+- Tokens passou a ser a seção 14 (Voz e tom assumiu a 13).
+
 ## [1.3.2] — 2026-06-17
 ### Alterado
 - Hero com a copy do deck: H1 "Pare de construir no escuro." + parágrafo do deck (instrução de clicar-para-copiar mantida).
