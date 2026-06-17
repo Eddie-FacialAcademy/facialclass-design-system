@@ -14,6 +14,12 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
+## [1.3.1] — 2026-06-17
+### Corrigido
+- Contraste AA do badge de status "Erro" (status danger) em tema claro: tom de `--danger` aprofundado (#C72F49 → #BE2C45) para passar 4.5:1. WCAG agora 0 falhas nos dois temas.
+### Alterado
+- `voz-e-tom.md`: adendo geral de referenciamento de experts (genérico, sem citar nomes).
+
 ## [1.3.0] — 2026-06-17
 ### Adicionado
 - Copy de produto integrada (deck do time de copy) nas demos: alertas, estado vazio, confirmação destrutiva, dica e balão, abas, acordeão, trilha de navegação, tabela de dados (5 linhas, status Publicada/Rascunho/Em revisão), seletor de data, app nav (6 itens) e paleta de comandos (3 grupos).

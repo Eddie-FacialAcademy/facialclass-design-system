@@ -53,8 +53,14 @@ Mantidos como são, **por extenso** quando institucional (ex.: "Marca Class", "M
 ## Números
 Algarismos com função **tabular** (não escrever número por extenso em tabelas e listas), para os dígitos alinharem. No DS isso já é global (`font-variant-numeric: tabular-nums`).
 
-## Vozes editoriais (experts)
-A microcopy de interface é **sempre neutra** (builder para builder). Vozes de experts (em aulas e conteúdo editorial) são definidas no material da marca, **fora do DS**, e não entram em botões, alertas e labels.
+## Referenciamento de experts (adendo geral)
+Vale para qualquer marca. A microcopy de interface é **sempre neutra** (builder para builder); experts aparecem em **conteúdo editorial** (aulas, materiais, citações), nunca em botões, alertas e labels. Este guia não fixa nomes: os nomes e personas de cada expert ficam no material editorial da marca.
+
+- **Forma de citar:** título mais nome completo na primeira menção; nome curto nas seguintes. Padronize título e grafia em todo o material.
+- **Credencial:** quando relevante, uma linha curta de especialidade, sem hipérbole nem superlativo ("o maior", "referência mundial").
+- **Voz do expert:** cada expert tem uma persona editorial própria (mais científica, mais prática, etc.), definida **no material da marca**, não no DS. O DS só hospeda a interface.
+- **Atribuição de fala:** cite o expert quando a fala for dele; a interface em volta (botões, navegação, alertas) permanece neutra.
+- **Escopo:** nomes e personas de experts pertencem à marca e **não cruzam** para outra marca nem entram no guia generalista.
 
 ## Microcopy modelo (neutro)
 - **Botão:** "Salvar" · "Adicionar item" (a ação, não "Enviar").
