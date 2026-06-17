@@ -14,6 +14,19 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
+## [1.2.0] — 2026-06-17
+### Adicionado
+- Seção "Componentes avançados" com 4 componentes de produto:
+  - Data table (ordenação, paginação, seleção de linha, densidade, sticky header, estados).
+  - Command palette (busca e atalhos, navegação por teclado, dicas de tecla).
+  - Navbar e sidebar de produto (app shell para área logada, item ativo, usuário).
+  - Date picker (calendário com hoje, seleção e intervalo).
+- Tokens: --row-h, --row-h-compact, --row-sel, --side-w, --cal-cell; estilo .kbd; utilitário .sr-only.
+- Item "Componentes avançados" na navegação por categorias.
+### Alterado
+- Contraste AA revisado nos novos componentes (dia e botão selecionado usam o tom profundo da marca).
+- Backgrounds claros usam #FAFAFA em vez de branco puro; texto mantém #fff/#000 onde já existia.
+
 ## [1.1.0] — 2026-06-16
 ### Adicionado
 - Navegação por categorias (Marca · Componentes · Sistema) com menus suspensos, scrollspy e logo da marca.

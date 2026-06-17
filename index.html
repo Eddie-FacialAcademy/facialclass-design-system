@@ -44,14 +44,14 @@
     --bw-hair:1px; --bw-1:1px; --bw-2:2px;
     --blur-sm:6px; --blur-md:12px; --blur-lg:20px;
     --bp-phone:390px; --bp-tablet:810px; --bp-desktop:1200px;
-    --size-icon-sm:16px; --size-icon:20px; --size-icon-lg:24px; --control-h:44px; --touch-min:44px;
+    --size-icon-sm:16px; --size-icon:20px; --size-icon-lg:24px; --control-h:44px; --touch-min:44px; --row-h:46px; --row-h-compact:38px; --side-w:248px; --cal-cell:38px;
     --ar-square:1/1; --ar-photo:4/3; --ar-wide:16/9;
     --code-bg:#060408; --code-txt:#B39EDE; --code-comment:#8E7DB2; --code-key:#FFE4A4;  /* code: dark nos dois temas */
     --logo:#FFFFFF;        /* marca: branca sobre escuro */
 
     /* ===== Cores semânticas (feedback) ===== */
     --success:#45C08A; --warning:#E8B53D; --danger:#FF7D93; --info:#A289D7;
-    --success-bg:rgba(69,192,138,.14); --warning-bg:rgba(232,181,61,.14); --danger-bg:rgba(255,125,147,.14); --info-bg:rgba(162,137,215,.14);
+    --success-bg:rgba(69,192,138,.14); --warning-bg:rgba(232,181,61,.14); --danger-bg:rgba(255,125,147,.14); --row-sel:rgba(162,137,215,.16); --info-bg:rgba(162,137,215,.14);
     /* ===== Escala de elevação (sombras em camadas + matiz do brand) ===== */
     --elev-1:0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30);
     --elev-2:0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40);
@@ -64,7 +64,7 @@
 
   /* ===== TEMA LIGHT · ativado por [data-theme="light"] no <html> ===== */
   [data-theme="light"]{
-    --bg:#FFFFFF; --bg2:#F5F1FB; --card:#FAF7FE; --card2:#F1EAFA;
+    --bg:#FAFAFA; --bg2:#F5F1FB; --card:#FAF7FE; --card2:#F1EAFA;
     --line:rgba(100,67,137,.16);
     --roxo:#3A274F; --roxo2:#644389; --roxo-bright:#7C5EA7;
     --lilas:#644389; --lilas-soft:#6E59A6;
@@ -76,7 +76,7 @@
     --logo:#644389;        /* marca: roxo institucional sobre claro */
     /* semânticas (variantes -ink p/ contraste no claro) */
     --success:#147A45; --warning:#8A5A00; --danger:#C72F49; --info:#5E4A8C;
-    --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10); --danger-bg:rgba(199,47,73,.10); --info-bg:rgba(94,74,140,.10);
+    --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10); --danger-bg:rgba(199,47,73,.10); --row-sel:rgba(100,67,137,.10); --info-bg:rgba(94,74,140,.10);
     /* elevação no claro: sombras roxas sutis */
     --elev-1:0 1px 2px rgba(100,67,137,.10), 0 2px 6px rgba(100,67,137,.08);
     --elev-2:0 2px 4px rgba(100,67,137,.10), 0 8px 16px rgba(100,67,137,.12);
@@ -226,7 +226,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .lc svg{height:60px;width:auto}
   .lc span{font-size:12px;color:inherit;font-weight:500;line-height:1.4}
   .lc-dark{background:#0A070E;color:#C8B9E6;border-color:rgba(162,137,215,.18)}
-  .lc-light{background:#FFFFFF;color:#6B5C87;border-color:rgba(100,67,137,.16)}
+  .lc-light{background:#FAFAFA;color:#6B5C87;border-color:rgba(100,67,137,.16)}
   .logo-rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
   .lr{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px 22px}
   .lr b{display:block;font-size:13px;margin-bottom:8px}
@@ -240,7 +240,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   @media(max-width:820px){.themes-grid{grid-template-columns:1fr}}
   .tcard{border-radius:18px;overflow:hidden;border:1px solid var(--line)}
   .tcard.dark{--t-bg:#0A070E;--t-bg2:#130D1A;--t-card:#1B1225;--t-line:rgba(162,137,215,.14);--t-txt:#F9F8FD;--t-mut:#8E7DB2;--t-eyebrow:#A289D7;--t-gold-ink:#FFE4A4;--t-grad-a:#644389;--t-grad-b:#3A274F}
-  .tcard.light{--t-bg:#FFFFFF;--t-bg2:#F5F1FB;--t-card:#FAF7FE;--t-line:rgba(100,67,137,.16);--t-txt:#241733;--t-mut:#6B5C87;--t-eyebrow:#644389;--t-gold-ink:#7A5A0E;--t-grad-a:#7C5EA7;--t-grad-b:#644389}
+  .tcard.light{--t-bg:#FAFAFA;--t-bg2:#F5F1FB;--t-card:#FAF7FE;--t-line:rgba(100,67,137,.16);--t-txt:#241733;--t-mut:#6B5C87;--t-eyebrow:#644389;--t-gold-ink:#7A5A0E;--t-grad-a:#7C5EA7;--t-grad-b:#644389}
   .tcard .bar{padding:11px 18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;display:flex;justify-content:space-between;align-items:center;background:var(--t-bg2);color:var(--t-mut)}
   .tcard .dot{width:34px;height:8px;border-radius:8px;background:linear-gradient(120deg,var(--t-grad-a),var(--t-grad-b))}
   .tcard .body{background:var(--t-bg);padding:28px}
@@ -396,14 +396,14 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .g-aurora2{background:linear-gradient(160deg,#0A070E 0%,#1A1030 42%,#3A274F 74%,#5A3D85 100%)}
   .g-glow-edge{background:radial-gradient(120% 80% at 50% 120%,rgba(162,137,215,.55) 0,transparent 55%),radial-gradient(90% 60% at 50% -10%,rgba(255,202,155,.18) 0,transparent 50%),#0A070E}
   .g-ribbon{background:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 2px,transparent 2px 24px),linear-gradient(120deg,#3A274F,#644389 45%,#A289D7)}
-  .gl-wash{background:linear-gradient(160deg,#FFFFFF,#EFE8FB)}
-  .gl-aurora{background:radial-gradient(at 25% 0%,rgba(100,67,137,.16) 0,transparent 60%),radial-gradient(at 90% 100%,rgba(255,202,155,.26) 0,transparent 55%),#FFFFFF}
-  .gl-pastel{background:radial-gradient(at 15% 20%,rgba(162,137,215,.30) 0,transparent 55%),radial-gradient(at 85% 16%,rgba(255,177,189,.28) 0,transparent 50%),radial-gradient(at 70% 95%,rgba(255,202,155,.30) 0,transparent 55%),#FFFFFF}
+  .gl-wash{background:linear-gradient(160deg,#FAFAFA,#EFE8FB)}
+  .gl-aurora{background:radial-gradient(at 25% 0%,rgba(100,67,137,.16) 0,transparent 60%),radial-gradient(at 90% 100%,rgba(255,202,155,.26) 0,transparent 55%),#FAFAFA}
+  .gl-pastel{background:radial-gradient(at 15% 20%,rgba(162,137,215,.30) 0,transparent 55%),radial-gradient(at 85% 16%,rgba(255,177,189,.28) 0,transparent 50%),radial-gradient(at 70% 95%,rgba(255,202,155,.30) 0,transparent 55%),#FAFAFA}
   .gl-lilac{background:linear-gradient(120deg,#EDE6FA,#D8C9F0)}
   .gl-peach{background:linear-gradient(120deg,#FFEAD8,#FFD7C2)}
   /* light · meshes */
-  .gl-mesh2{background:radial-gradient(at 20% 18%,rgba(162,137,215,.34) 0,transparent 48%),radial-gradient(at 82% 22%,rgba(255,177,189,.30) 0,transparent 46%),radial-gradient(at 60% 92%,rgba(255,202,155,.34) 0,transparent 50%),#FFFFFF}
-  .gl-mesh3{background:radial-gradient(at 15% 22%,rgba(162,137,215,.32) 0,transparent 46%),radial-gradient(at 85% 18%,rgba(255,177,189,.30) 0,transparent 44%),radial-gradient(at 50% 88%,rgba(124,94,167,.20) 0,transparent 50%),radial-gradient(at 80% 75%,rgba(255,202,155,.30) 0,transparent 46%),#FFFFFF}
+  .gl-mesh2{background:radial-gradient(at 20% 18%,rgba(162,137,215,.34) 0,transparent 48%),radial-gradient(at 82% 22%,rgba(255,177,189,.30) 0,transparent 46%),radial-gradient(at 60% 92%,rgba(255,202,155,.34) 0,transparent 50%),#FAFAFA}
+  .gl-mesh3{background:radial-gradient(at 15% 22%,rgba(162,137,215,.32) 0,transparent 46%),radial-gradient(at 85% 18%,rgba(255,177,189,.30) 0,transparent 44%),radial-gradient(at 50% 88%,rgba(124,94,167,.20) 0,transparent 50%),radial-gradient(at 80% 75%,rgba(255,202,155,.30) 0,transparent 46%),#FAFAFA}
   .gl-mesh4{background:radial-gradient(at 28% 16%,rgba(124,94,167,.26) 0,transparent 48%),radial-gradient(at 78% 38%,rgba(255,177,189,.28) 0,transparent 46%),radial-gradient(at 22% 82%,rgba(255,202,155,.30) 0,transparent 46%),radial-gradient(at 90% 88%,rgba(162,137,215,.26) 0,transparent 48%),#F8F4FE}
   .gl-mesh5{background:radial-gradient(at 50% 10%,rgba(162,137,215,.30) 0,transparent 50%),radial-gradient(at 14% 60%,rgba(255,177,189,.26) 0,transparent 46%),radial-gradient(at 86% 66%,rgba(124,94,167,.24) 0,transparent 50%),#FBF8FE}
   /* light · abstratos */
@@ -553,6 +553,95 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .cardv.inter{cursor:pointer;transition:transform .2s var(--ease),box-shadow .2s var(--ease)} .cardv.inter:hover{transform:translateY(-3px);box-shadow:var(--elev-overlay)}
   .cardv h4{font-size:16px;font-weight:500;color:var(--txt);margin-bottom:6px} .cardv p{font-size:13.5px;color:var(--mut);line-height:1.55}
   .cardv-media .media{height:92px;background:linear-gradient(120deg,var(--gold),var(--rose))} .cardv-media .body{padding:16px}
+  .soon{border:1px dashed var(--line);border-radius:var(--radius-lg);padding:22px 24px;color:var(--mut);font-size:13.5px;line-height:1.55;background:var(--card);max-width:660px}
+  /* ===== Avançados ===== */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .kbd{display:inline-flex;align-items:center;font:inherit;font-size:11px;line-height:1;padding:3px 6px;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;background:var(--card2);color:var(--mut);font-variant-numeric:tabular-nums}
+  .dtable-wrap{border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg);overflow:hidden;max-width:780px}
+  .dtable-tools{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:var(--bw-1) solid var(--line);background:var(--card);flex-wrap:wrap}
+  .dtable-tools .input{height:36px;min-height:0;max-width:240px;padding:0 12px}
+  .dtable-tools .sp{flex:1}
+  .dtbl-x{overflow-x:auto}
+  .dtbl{width:100%;border-collapse:collapse;font-size:13.5px;color:var(--txt)}
+  .dtbl th,.dtbl td{text-align:left;padding:0 16px;height:var(--row-h);border-top:var(--bw-1) solid var(--line);white-space:nowrap}
+  .dtbl thead th{background:var(--card2);color:var(--mut);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;border-top:none;position:sticky;top:0}
+  .dtbl .ths{display:inline-flex;align-items:center;gap:6px;background:none;border:none;font:inherit;color:inherit;cursor:pointer;letter-spacing:inherit;text-transform:inherit;padding:0}
+  .dtbl .ths svg{width:12px;height:12px;opacity:.45;transition:transform var(--motion) var(--ease),opacity var(--motion) var(--ease)}
+  .dtbl th[aria-sort="ascending"] .ths svg{opacity:1;transform:rotate(180deg)}
+  .dtbl th[aria-sort="descending"] .ths svg{opacity:1}
+  .dtbl .ths:focus-visible{outline:none;box-shadow:var(--focus);border-radius:6px}
+  .dtbl tbody tr{transition:background var(--motion) var(--ease)}
+  .dtbl tbody tr:hover{background:var(--card2)}
+  .dtbl tbody tr.is-sel{background:var(--row-sel)}
+  .dtbl th.col-ck,.dtbl td.col-ck{width:1px;padding-right:0}
+  .dtbl.compact th,.dtbl.compact td{height:var(--row-h-compact)}
+  .st{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--txt);white-space:nowrap}
+  .st i{width:7px;height:7px;border-radius:50%;flex:0 0 auto;background:var(--mut)}
+  .st.ok i{background:var(--success)} .st.warn i{background:var(--warning)} .st.off i{background:var(--mut)}
+  .dtable-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;border-top:var(--bw-1) solid var(--line);background:var(--card);font-size:12.5px;color:var(--mut);flex-wrap:wrap}
+  .cmdk-demo{position:relative;border-radius:var(--radius-lg);overflow:hidden;border:var(--bw-1) solid var(--line);min-height:360px;background:var(--bg2);display:flex;align-items:flex-start;justify-content:center;padding:38px 22px}
+  .cmdk-scrim{position:absolute;inset:0;background:rgba(0,0,0,var(--opacity-overlay));-webkit-backdrop-filter:blur(var(--blur-sm));backdrop-filter:blur(var(--blur-sm))}
+  .cmdk{position:relative;width:min(520px,100%);background:var(--card);border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--elev-modal);overflow:hidden}
+  .cmdk-in{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:var(--bw-1) solid var(--line)}
+  .cmdk-in svg{width:18px;height:18px;color:var(--mut);flex:0 0 auto}
+  .cmdk-in input{flex:1;background:none;border:none;outline:none;font:inherit;font-size:15px;color:var(--txt);padding:0}
+  .cmdk-in input::placeholder{color:var(--mut)}
+  .cmdk-list{max-height:262px;overflow-y:auto;padding:8px}
+  .cmdk-grp{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600;padding:10px 10px 5px}
+  .cmdk-item{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:9px;font-size:14px;color:var(--txt);cursor:pointer}
+  .cmdk-item svg{width:17px;height:17px;color:var(--mut);flex:0 0 auto}
+  .cmdk-item .lbl{flex:1}
+  .cmdk-item:hover{background:var(--card2)}
+  .cmdk-item.is-active{background:var(--row-sel)}
+  .cmdk-item.is-active svg{color:var(--lilas)}
+  .cmdk-foot{display:flex;align-items:center;gap:16px;padding:10px 15px;border-top:var(--bw-1) solid var(--line);font-size:12px;color:var(--mut);flex-wrap:wrap}
+  .cmdk-foot .k{display:inline-flex;align-items:center;gap:6px}
+  .appshell-x{overflow-x:auto;max-width:840px;border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg)}
+  .appshell{display:grid;grid-template-columns:var(--side-w) 1fr;min-width:660px;min-height:330px;background:var(--bg2)}
+  .appside{background:var(--card);border-right:var(--bw-1) solid var(--line);display:flex;flex-direction:column;padding:14px 12px}
+  .appside .ab-brand{display:flex;align-items:center;gap:9px;padding:4px 8px 6px;color:var(--txt);font-weight:600;font-size:14px;letter-spacing:-.01em}
+  .appside .ab-brand svg{width:22px;height:22px;flex:0 0 auto;color:var(--lilas)}
+  .navgroup-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600;padding:12px 10px 5px}
+  .navitem{display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:9px;font-size:14px;color:var(--mut);text-decoration:none;position:relative;cursor:pointer}
+  .navitem svg{width:18px;height:18px;flex:0 0 auto}
+  .navitem:hover{background:var(--card2);color:var(--txt)}
+  .navitem.is-active{background:var(--row-sel);color:var(--txt);font-weight:500}
+  .navitem.is-active::before{content:"";position:absolute;left:0;top:9px;bottom:9px;width:3px;border-radius:3px;background:var(--lilas)}
+  .navitem.is-active svg{color:var(--lilas)}
+  .side-foot{margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px 8px 2px;border-top:var(--bw-1) solid var(--line)}
+  .side-foot .av{width:32px;height:32px;font-size:12px}
+  .side-foot .un{font-size:13px;color:var(--txt);font-weight:500;line-height:1.2}
+  .side-foot .ur{font-size:11.5px;color:var(--mut)}
+  .appmain{display:flex;flex-direction:column;min-width:0}
+  .appbar{display:flex;align-items:center;gap:12px;padding:11px 18px;border-bottom:var(--bw-1) solid var(--line);background:var(--card)}
+  .appbar h4{font-size:16px;font-weight:500;color:var(--txt)}
+  .appbar .ab-s{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border:var(--bw-1) solid var(--line);border-radius:var(--radius-pill);color:var(--mut);font-size:13px;min-width:200px}
+  .appbar .ab-s svg{width:15px;height:15px;flex:0 0 auto}
+  .appbar .sp{flex:1}
+  .appbody{padding:22px 18px}
+  .appbody h4{font-size:15px;font-weight:500;color:var(--txt)}
+  .appbody p{font-size:13.5px;color:var(--mut);line-height:1.6;margin-top:6px;max-width:46ch}
+  .dpick{max-width:300px}
+  .dpick-lbl{display:block;font-size:13px;font-weight:500;color:var(--txt);margin-bottom:7px}
+  .dpick-field{display:flex;align-items:center;gap:9px;height:var(--control-h);padding:0 13px;border:var(--bw-1) solid var(--lilas);border-radius:var(--radius-md);background:var(--card);color:var(--txt);font-size:14px;box-shadow:var(--focus);cursor:pointer}
+  .dpick-field svg{width:17px;height:17px;color:var(--mut);flex:0 0 auto}
+  .dpick-field .v{flex:1;font-variant-numeric:tabular-nums}
+  .cal{margin-top:8px;background:var(--card);border:var(--bw-1) solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--elev-overlay);padding:14px;width:296px}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+  .cal-head .m{font-size:14px;font-weight:500;color:var(--txt)}
+  .cal-nav{display:inline-flex;gap:4px}
+  .cal-nav button{width:30px;height:30px;border-radius:8px;border:var(--bw-1) solid var(--line);background:var(--card);color:var(--txt);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+  .cal-nav button:hover{background:var(--card2)}
+  .cal-nav button:focus-visible{outline:none;box-shadow:var(--focus)}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+  .cal-wd{font-size:11px;color:var(--mut);text-align:center;padding:5px 0;font-weight:600}
+  .cal-day{height:var(--cal-cell);border-radius:9px;border:none;background:none;font:inherit;font-size:13px;color:var(--txt);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+  .cal-day:hover{background:var(--card2)}
+  .cal-day:focus-visible{outline:none;box-shadow:var(--focus)}
+  .cal-day.is-out{color:var(--mut);opacity:.5}
+  .cal-day.is-today{box-shadow:inset 0 0 0 1.5px var(--lilas)}
+  .cal-day.is-range{background:var(--row-sel);border-radius:0}
+  .cal-day.is-sel{background:var(--roxo2);color:#fff;font-weight:600}
   .card-h{display:flex;gap:14px;align-items:center} .card-h .thumb{width:54px;height:54px;border-radius:var(--radius-md);background:linear-gradient(120deg,var(--gold),var(--rose));flex:0 0 auto}
   .states-tbl td{color:var(--txt)} .states-tbl td:first-child{color:var(--mut);font-family:ui-monospace,monospace}
   .fnd-touch{width:44px;height:44px;border:1px dashed var(--mut);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:var(--mut)}
@@ -716,6 +805,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
           <a role="menuitem" href="#nav-botoes">Botões e componentes</a>
           <a role="menuitem" href="#nav-feedback">Feedback e sobreposições</a>
           <a role="menuitem" href="#nav-estrutura">Estrutura e navegação</a>
+          <a role="menuitem" href="#nav-avancados">Componentes avançados</a>
         </div>
       </div>
       <div class="tn-group">
@@ -1271,9 +1361,123 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   </div>
 </div></section>
 
+<!-- COMPONENTES AVANÇADOS -->
+<section id="sec-avancados"><div class="wrap">
+  <div class="sec-title" id="nav-avancados"><span class="num">09</span><h2>Componentes avançados</h2></div>
+  <p class="sec-note">Camada de produto avançada, para áreas logadas e fluxos densos: data table, date picker, navbar e sidebar de produto, e command palette.</p>
+  <div class="group-lbl">Data table</div>
+  <div class="dtable-wrap">
+    <div class="dtable-tools">
+      <input class="input" type="search" placeholder="Buscar aula" aria-label="Buscar aula">
+      <span class="sp"></span>
+      <label class="toggle" style="font-size:13px;color:var(--mut)"><input type="checkbox" data-density=".dtbl"> Densidade compacta</label>
+    </div>
+    <div class="dtbl-x">
+    <table class="dtbl" aria-label="Aulas do módulo de HOF">
+      <thead><tr>
+      <th class="col-ck"><label class="check"><input type="checkbox" data-selall=".dtbl" aria-label="Selecionar tudo"></label></th>
+      <th aria-sort="ascending"><button class="ths">Aula <svg aria-hidden="true"><use href="#ph-caret"/></svg></button></th>
+      <th><button class="ths">Módulo <svg aria-hidden="true"><use href="#ph-caret"/></svg></button></th>
+      <th><button class="ths">Duração <svg aria-hidden="true"><use href="#ph-caret"/></svg></button></th>
+      <th>Status</th>
+      </tr></thead>
+      <tbody>
+      <tr class="is-sel"><td class="col-ck"><label class="check"><input type="checkbox" checked aria-label="Selecionar linha"></label></td><td>Toxina: princípios e diluição</td><td>Toxina</td><td>42 min</td><td><span class="st ok"><i></i>Publicada</span></td></tr>
+      <tr><td class="col-ck"><label class="check"><input type="checkbox" aria-label="Selecionar linha"></label></td><td>Preenchimento labial seguro</td><td>Preenchimento</td><td>38 min</td><td><span class="st warn"><i></i>Rascunho</span></td></tr>
+      <tr><td class="col-ck"><label class="check"><input type="checkbox" aria-label="Selecionar linha"></label></td><td>Rinomodelação passo a passo</td><td>Avançado</td><td>51 min</td><td><span class="st ok"><i></i>Publicada</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="dtable-foot"><span>3 de 24 aulas</span><div class="pager" style="margin:0"><button class="pg" disabled aria-label="Anterior">‹</button><button class="pg active">1</button><button class="pg">2</button><button class="pg">3</button><button class="pg" aria-label="Próxima">›</button></div></div>
+  </div>
+  <div class="group-lbl">Date picker</div>
+  <div class="dpick">
+    <label class="dpick-lbl">Agendar aula ao vivo</label>
+    <div class="dpick-field" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg><span class="v">17/06/2026 a 20/06/2026</span></div>
+    <div class="cal" role="dialog" aria-label="Selecionar datas">
+      <div class="cal-head"><span class="m">Junho 2026</span><span class="cal-nav"><button type="button" aria-label="Mês anterior">‹</button><button type="button" aria-label="Próximo mês">›</button></span></div>
+      <div class="cal-grid" role="grid">
+      <span class="cal-wd">D</span><span class="cal-wd">S</span><span class="cal-wd">T</span><span class="cal-wd">Q</span><span class="cal-wd">Q</span><span class="cal-wd">S</span><span class="cal-wd">S</span>
+      <button class="cal-day is-out">31</button>
+      <button class="cal-day">1</button>
+      <button class="cal-day">2</button>
+      <button class="cal-day">3</button>
+      <button class="cal-day">4</button>
+      <button class="cal-day">5</button>
+      <button class="cal-day">6</button>
+      <button class="cal-day">7</button>
+      <button class="cal-day">8</button>
+      <button class="cal-day">9</button>
+      <button class="cal-day">10</button>
+      <button class="cal-day">11</button>
+      <button class="cal-day">12</button>
+      <button class="cal-day">13</button>
+      <button class="cal-day">14</button>
+      <button class="cal-day">15</button>
+      <button class="cal-day">16</button>
+      <button class="cal-day is-today is-sel" aria-selected="true" aria-current="date">17</button>
+      <button class="cal-day is-range">18</button>
+      <button class="cal-day is-range">19</button>
+      <button class="cal-day is-sel" aria-selected="true">20</button>
+      <button class="cal-day">21</button>
+      <button class="cal-day">22</button>
+      <button class="cal-day">23</button>
+      <button class="cal-day">24</button>
+      <button class="cal-day">25</button>
+      <button class="cal-day">26</button>
+      <button class="cal-day">27</button>
+      <button class="cal-day">28</button>
+      <button class="cal-day">29</button>
+      <button class="cal-day">30</button>
+      <button class="cal-day is-out">1</button>
+      <button class="cal-day is-out">2</button>
+      <button class="cal-day is-out">3</button>
+      <button class="cal-day is-out">4</button>
+      </div>
+    </div>
+  </div>
+  <div class="group-lbl">Navbar e sidebar de produto</div>
+  <div class="appshell-x">
+  <div class="appshell">
+    <nav class="appside" aria-label="Navegação do produto">
+      <div class="ab-brand"><svg viewBox="0 0 320 320" aria-hidden="true"><use href="#logo-icon"/></svg><span>Facial Class</span></div>
+      <div class="navgroup-lbl">Menu</div>
+          <a class="navitem" href="#nav-avancados"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10.5 9l4.5 3-4.5 3z"/></svg><span class="lbl">Aulas</span></a>
+          <a class="navitem is-active" href="#nav-avancados" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h11"/></svg><span class="lbl">Trilhas</span></a>
+          <a class="navitem" href="#nav-avancados"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="5"/><path d="M8.5 13L7 21l5-2.5L17 21l-1.5-8"/></svg><span class="lbl">Certificados</span></a>
+          <a class="navitem" href="#nav-avancados"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 6.5a3 3 0 0 1 0 6"/><path d="M20 19a5.5 5.5 0 0 0-3.5-5"/></svg><span class="lbl">Comunidade</span></a>
+          <a class="navitem" href="#nav-avancados"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2.3"/><circle cx="9" cy="16" r="2.3"/></svg><span class="lbl">Configurações</span></a>
+      <div class="side-foot"><span class="av">EJ</span><span><span class="un">Edegar J.</span><br><span class="ur">Instrutor</span></span></div>
+    </nav>
+    <div class="appmain">
+      <div class="appbar"><h4>Trilhas</h4><span class="sp"></span><span class="ab-s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>Buscar</span><span class="av">EJ</span></div>
+      <div class="appbody"><h4>Suas trilhas</h4><p>Selecione uma trilha para ver as aulas e o progresso dos alunos.</p></div>
+    </div>
+  </div>
+  </div>
+  <div class="group-lbl">Command palette</div>
+  <div class="cmdk-demo">
+    <div class="cmdk-scrim"></div>
+    <div class="cmdk" role="dialog" aria-modal="true" aria-label="Paleta de comandos">
+      <div class="cmdk-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="text" placeholder="Buscar aula ou ação" aria-label="Buscar aula ou ação" role="combobox" aria-expanded="true" aria-controls="cmdk-list-fa"></div>
+      <div class="cmdk-list" id="cmdk-list-fa" role="listbox">
+        <div class="cmdk-grp">Ações</div>
+          <div class="cmdk-item is-active" role="option" aria-selected="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span class="lbl">Nova aula</span><span class="kbd">↵</span></div>
+          <div class="cmdk-item" role="option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg><span class="lbl">Convidar aluno</span></div>
+        <div class="cmdk-grp">Navegação</div>
+          <div class="cmdk-item" role="option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="lbl">Ir para Trilhas</span></div>
+          <div class="cmdk-item" role="option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="lbl">Ir para Certificados</span></div>
+        <div class="cmdk-grp">Recentes</div>
+          <div class="cmdk-item" role="option"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 1.8"/></svg><span class="lbl">Toxina: diluição</span></div>
+      </div>
+      <div class="cmdk-foot"><span class="k"><span class="kbd">↑</span><span class="kbd">↓</span> navegar</span><span class="k"><span class="kbd">↵</span> abrir</span><span class="k"><span class="kbd">esc</span> fechar</span></div>
+    </div>
+  </div>
+</div></section>
+
 <!-- 09 ACESSIBILIDADE & CONTRASTE -->
 <section><div class="wrap">
-  <div class="sec-title" id="nav-a11y"><span class="num">09</span><h2>Acessibilidade e contraste</h2></div>
+  <div class="sec-title" id="nav-a11y"><span class="num">10</span><h2>Acessibilidade e contraste</h2></div>
   <p class="sec-note">Todas as combinações de texto/fundo atendem ao <b class="hl">WCAG 2.1 AA</b> (≥ 4.5:1 para texto normal; ≥ 3:1 para texto grande e elementos de UI). Razões medidas:</p>
   <div class="a11y">
     <div class="a11y-col">
@@ -1300,7 +1504,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
 <!-- 10 FUNDAMENTOS DO SISTEMA -->
 <section><div class="wrap">
-  <div class="sec-title" id="nav-sistema"><span class="num">10</span><h2>Fundamentos do sistema</h2></div>
+  <div class="sec-title" id="nav-sistema"><span class="num">11</span><h2>Fundamentos do sistema</h2></div>
   <p class="sec-note">Espaçamento, raio, elevação e movimento: a base que mantém ritmo e profundidade consistentes. Todos estão nas CSS variables (seção 09) prontos para colar no Framer.</p>
   <div class="fund-grid">
     <div>
@@ -1397,7 +1601,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
 <!-- 11 PRINCÍPIOS & PROCESSO -->
 <section id="sec-processo"><div class="wrap">
-  <div class="sec-title" id="nav-processo"><span class="num">11</span><h2>Princípios e processo</h2></div>
+  <div class="sec-title" id="nav-processo"><span class="num">12</span><h2>Princípios e processo</h2></div>
   <p class="sec-note">A camada de maturidade: como o sistema é pensado, versionado e mantido: o que separa um kit de um sistema vivo.</p>
   <div class="group-lbl">Arquitetura de tokens (3 camadas)</div>
   <p class="sec-note" style="margin-bottom:10px">Tokens fluem em <b class="hl">primitive → semantic/intent → component</b>. Regra de ouro: <b class="hl">o token semântico nunca sugere valor</b> (<code>--btn-bg</code>, não <code>--azul-500</code>); o de componente referencia o semântico, nunca o primitivo direto. É o que torna theming e rebrand triviais.</p>
@@ -1412,7 +1616,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
 <!-- 12 TOKENS PARA COPIAR -->
 <section style="border-bottom:none"><div class="wrap">
-  <div class="sec-title" id="nav-tokens"><span class="num">12</span><h2>Tokens para copiar</h2></div>
+  <div class="sec-title" id="nav-tokens"><span class="num">13</span><h2>Tokens para copiar</h2></div>
   <p class="sec-note">Cole as CSS variables em um Code Component / override do Framer, ou use a tabela JSON para criar os Color Styles e Text Styles manualmente. Inclui os dois temas: <b class="hl">dark</b> (padrão) e <b class="hl">light</b> (classe <code>.light</code>).</p>
 
   <div class="group-lbl">CSS variables</div>
@@ -1458,7 +1662,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
 <span class="c">/* ---- tema light · alterna com [data-theme="light"] no &lt;html&gt; (toggle + localStorage) ---- */</span>
 [data-theme="light"]{
-  <span class="k">--bg</span>:#FFFFFF; <span class="k">--bg2</span>:#F5F1FB; <span class="k">--card</span>:#FAF7FE; <span class="k">--card2</span>:#F1EAFA;
+  <span class="k">--bg</span>:#FAFAFA; <span class="k">--bg2</span>:#F5F1FB; <span class="k">--card</span>:#FAF7FE; <span class="k">--card2</span>:#F1EAFA;
   <span class="k">--line</span>:rgba(100,67,137,.16);
   <span class="k">--txt</span>:#241733; <span class="k">--mut</span>:#6B5C87; <span class="k">--legal-mut</span>:#6B5C87;
   <span class="k">--roxo2</span>:#644389; <span class="k">--roxo-bright</span>:#7C5EA7; <span class="k">--lilas-soft</span>:#6E59A6;
@@ -1677,6 +1881,13 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
     });
   },{rootMargin:"-78px 0px -68% 0px",threshold:0});
   Object.keys(byId).forEach(function(id){var t=document.getElementById(id);if(t)io.observe(t);});
+})();
+</script>
+<script>
+(function(){
+  document.querySelectorAll(".dtbl tbody input[type=checkbox]").forEach(function(cb){cb.addEventListener("change",function(){var tr=cb.closest("tr");if(tr)tr.classList.toggle("is-sel",cb.checked);});});
+  document.querySelectorAll("input[data-density]").forEach(function(cb){cb.addEventListener("change",function(){var t=document.querySelector(cb.getAttribute("data-density"));if(t)t.classList.toggle("compact",cb.checked);});});
+  document.querySelectorAll("input[data-selall]").forEach(function(cb){cb.addEventListener("change",function(){document.querySelectorAll(cb.getAttribute("data-selall")+" tbody input[type=checkbox]").forEach(function(x){x.checked=cb.checked;x.dispatchEvent(new Event("change"));});});});
 })();
 </script>
 </body></html>
