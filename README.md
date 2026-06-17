@@ -7,7 +7,7 @@ Desenvolvido por **Edegar Junior**.
 ## Entregas
 
 - **index.html** — design system reutilizável (showcase navegável): paleta (institucional + derivada), temas **dark/light**, tipografia (Silka), **gradientes**, **ícones** (Phosphor Thin, copiar SVG), **logos** (copiar/baixar SVG) e sistema de **botões** (variantes/tamanhos/estados). Click-to-copy em cores, valores e código; download PNG dos gradientes.
-  - 🌐 **Online (para compartilhar):** https://edegardesignacademy-hash.github.io/facialclass-design-system/ — GitHub Pages (repo público `facialclass-design-system`).
+  - 🌐 **Online (para compartilhar):** https://eddie-facialacademy.github.io/facialclass-design-system/ — GitHub Pages (repo público `facialclass-design-system`).
 
 ## Design System portátil (`design-system/`)
 
@@ -29,4 +29,4 @@ Pacote para aplicar a marca em **qualquer projeto/ferramenta** (web, React, Fram
 
 ## Publicação
 
-Repo público `facialclass-design-system` (conta `edegardesignacademy-hash`), branch `main`, `index.html` na raiz, GitHub Pages. `.git` fora do OneDrive (`AppData\Local\gitdirs\`); line-endings LF (`.gitattributes`). Deploy: editar → `git add/commit/push` (credencial no Cofre do Windows, sem token). Ver `HANDOFF.md`.
+Repo público `facialclass-design-system` (conta `Eddie-FacialAcademy`), branch `main`, `index.html` na raiz, GitHub Pages. `.git` fora do OneDrive (`AppData\Local\gitdirs\`); line-endings LF (`.gitattributes`). Deploy: editar → `git add/commit/push` (credencial no Cofre do Windows, sem token). Ver `HANDOFF.md`.
