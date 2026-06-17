@@ -14,6 +14,11 @@ versionamento segue [SemVer](https://semver.org/lang/pt-BR/):
 
 _Nada pendente no momento._
 
+## [1.3.2] — 2026-06-17
+### Alterado
+- Hero com a copy do deck: H1 "Pare de construir no escuro." + parágrafo do deck (instrução de clicar-para-copiar mantida).
+- Notas das 12 seções substituídas pela versão do deck (termos normalizados ao pt-BR do DS). Nota de Estrutura mantida (o deck não trouxe).
+
 ## [1.3.1] — 2026-06-17
 ### Corrigido
 - Contraste AA do badge de status "Erro" (status danger) em tema claro: tom de `--danger` aprofundado (#C72F49 → #BE2C45) para passar 4.5:1. WCAG agora 0 falhas nos dois temas.
