@@ -17,6 +17,8 @@ _Nada pendente no momento._
 ## [1.4.2] — 2026-06-18
 ### Corrigido
 - Sincronização dos valores canônicos entre showcase, CSS drop-in, JSON de tokens, documentação e tabela de Color Styles: fundo light `#FAFAFA`, `--danger` light `#BE2C45`, elevação dark preta em camadas e tokens de componentes avançados no pacote.
+### Alterado
+- Seção Cores do showcase: novo grupo "Tema claro · fundos" e textos deixando explícito que as superfícies usam off-white `#FAFAFA` / quase-preto `#0A070E` (nunca branco ou preto puro); preview do tema claro corrigido de `#FFFFFF` para `#FAFAFA`.
 
 ## [1.4.1] — 2026-06-18
 ### Adicionado
