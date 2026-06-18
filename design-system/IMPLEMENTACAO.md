@@ -121,13 +121,14 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 /* Tamanhos */        --size-icon-sm:16  --size-icon:20  --size-icon-lg:24  --control-h:44  --touch-min:44 (px)
 /* Aspect ratio */    --ar-square:1/1  --ar-photo:4/3  --ar-wide:16/9
 /* Code (escuro nos 2 temas) */ --code-bg:#060408  --code-txt:#B39EDE  --code-comment:#8E7DB2  --code-key:#FFE4A4
-/* Componentes */     --row-h:46px  --row-h-compact:38px  --side-w:248px  --cal-cell:38px  --row-sel:(accent .16 dark / .10 light)
+/* Componentes */     --row-h:46px  --row-h-compact:38px  --side-w:248px  --cal-cell:38px  --row-sel:(accent .16 dark / .10 light; Corporal light usa rgba(194,67,78,.10))
 ```
 
-**Elevação (sombra em camadas, matiz da marca):**
+**Elevação (sombra em camadas; dark preto, light com matiz da marca):**
 ```
 --elev-1: 0 1px 2px …, 0 2px 6px …            (dark: preto; light: rgba(100,67,137,…))
 --elev-2 / --elev-3 / --elev-4                 (cada nível mais difuso)
+--elev-3 dark: 0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55)
 --elev-raised:var(--elev-1)  --elev-overlay:var(--elev-3)  --elev-modal:var(--elev-4)
 --sh / --sh-strong: rgba(100,67,137,.40/.50) dark · .18/.26 light  (glow dos botões fill)
 ```

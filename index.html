@@ -52,7 +52,7 @@
     /* ===== Cores semânticas (feedback) ===== */
     --success:#45C08A; --warning:#E8B53D; --danger:#FF7D93; --info:#A289D7;
     --success-bg:rgba(69,192,138,.14); --warning-bg:rgba(232,181,61,.14); --danger-bg:rgba(255,125,147,.14); --row-sel:rgba(162,137,215,.16); --info-bg:rgba(162,137,215,.14);
-    /* ===== Escala de elevação (sombras em camadas + matiz do brand) ===== */
+    /* ===== Escala de elevação (dark preto em camadas; light com matiz da marca) ===== */
     --elev-1:0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30);
     --elev-2:0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40);
     --elev-3:0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55);
@@ -239,7 +239,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   .themes-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px}
   @media(max-width:820px){.themes-grid{grid-template-columns:1fr}}
   .tcard{border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-  .tcard.dark{--t-bg:#0A070E;--t-bg2:#130D1A;--t-card:#1B1225;--t-line:rgba(162,137,215,.14);--t-txt:#F9F8FD;--t-mut:#8E7DB2;--t-eyebrow:#A289D7;--t-gold-ink:#FFE4A4;--t-grad-a:#644389;--t-grad-b:#3A274F}
+  .tcard.dark{--t-bg:#0A070E;--t-bg2:#130D1A;--t-card:#1B1225;--t-line:rgba(162,137,215,.14);--t-txt:#F9F8FD;--t-mut:#C2BAD0;--t-eyebrow:#A289D7;--t-gold-ink:#FFE4A4;--t-grad-a:#644389;--t-grad-b:#3A274F}
   .tcard.light{--t-bg:#FAFAFA;--t-bg2:#F5F1FB;--t-card:#FAF7FE;--t-line:rgba(100,67,137,.16);--t-txt:#241733;--t-mut:#6B5C87;--t-eyebrow:#644389;--t-gold-ink:#7A5A0E;--t-grad-a:#7C5EA7;--t-grad-b:#644389}
   .tcard .bar{padding:11px 18px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;display:flex;justify-content:space-between;align-items:center;background:var(--t-bg2);color:var(--t-mut)}
   .tcard .dot{width:34px;height:8px;border-radius:8px;background:linear-gradient(120deg,var(--t-grad-a),var(--t-grad-b))}
@@ -1572,7 +1572,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
     <div class="fnd-box"><div class="fnd-sw" style="height:auto;width:64px;aspect-ratio:var(--ar-wide)"></div>16:9</div>
   </div>
   <div class="group-lbl">Elevação semântica</div>
-  <p class="sec-note" style="margin:6px 0 0">Papéis mapeados na escala de sombra: <b class="hl">Elevado</b> = elev-1 · <b class="hl">Sobreposição</b> = elev-3 · <b class="hl">Modal</b> = elev-4. Use o papel (`--elev-raised/overlay/modal`), não o número. Sombras agora em <b class="hl">camadas + matiz do brand</b> (não preto puro).</p>
+  <p class="sec-note" style="margin:6px 0 0">Papéis mapeados na escala de sombra: <b class="hl">Elevado</b> = elev-1 · <b class="hl">Sobreposição</b> = elev-3 · <b class="hl">Modal</b> = elev-4. Use o papel (`--elev-raised/overlay/modal`), não o número. Sombras usam <b class="hl">camadas pretas no dark</b> e <b class="hl">matiz da marca no light</b>.</p>
 
   <div class="group-lbl">Cantos aninhados</div>
   <p class="sec-note" style="margin-bottom:0">Elemento arredondado dentro de outro: os cantos devem ser <b class="hl">concêntricos</b> (mesmo centro de arco). Regra: <b class="hl">raio interno = raio externo − padding</b>, pra o espaçamento ficar uniforme inclusive nos cantos.</p>
@@ -1715,8 +1715,8 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 
   <span class="c">/* semânticas (feedback) + elevação (camadas) + papéis */</span>
   <span class="k">--success</span>:#45C08A; <span class="k">--warning</span>:#E8B53D; <span class="k">--danger</span>:#FF7D93; <span class="k">--info</span>:#A289D7;
-  <span class="k">--elev-1</span>:0 2px 8px rgba(0,0,0,.4); <span class="k">--elev-2</span>:0 6px 18px rgba(0,0,0,.46);
-  <span class="k">--elev-3</span>:0 14px 36px rgba(100,67,137,.46); <span class="k">--elev-4</span>:0 26px 60px rgba(100,67,137,.55);
+  <span class="k">--elev-1</span>:0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30); <span class="k">--elev-2</span>:0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40);
+  <span class="k">--elev-3</span>:0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55); <span class="k">--elev-4</span>:0 10px 24px rgba(0,0,0,.5), 0 28px 64px rgba(0,0,0,.62);
   <span class="k">--elev-raised</span>:var(--elev-1); <span class="k">--elev-overlay</span>:var(--elev-3); <span class="k">--elev-modal</span>:var(--elev-4);
 }
 
@@ -1758,7 +1758,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <span class="c">// feedback · valor dark (paridade light no comentário)</span>
   <span class="k">"feedback/Success"</span>:   "#45C08A",   <span class="c">// light #147A45</span>
   <span class="k">"feedback/Warning"</span>:   "#E8B53D",   <span class="c">// light #8A5A00</span>
-  <span class="k">"feedback/Danger"</span>:    "#FF7D93",   <span class="c">// light #C72F49</span>
+  <span class="k">"feedback/Danger"</span>:    "#FF7D93",   <span class="c">// light #BE2C45</span>
   <span class="k">"feedback/Info"</span>:      "#A289D7"    <span class="c">// light #5E4A8C</span>
 }</div>
 <div class="code"><span class="c">// Text Styles (Silka) · tamanho por breakpoint Framer [desktop, tablet, phone]</span>
@@ -1781,7 +1781,7 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
   <p class="sec-note" style="margin-top:0">No Framer, crie cada cor como um <b class="hl">Color Style</b> com um valor de <b class="hl">Claro</b> e um de <b class="hl">Escuro</b>. O site publicado segue a aparência do sistema do visitante automaticamente (<code>prefers-color-scheme</code>); dá pra adicionar um toggle e lembrar a escolha do visitante. Atalho no canvas: Ctrl+Cmd+N. Valores por estilo:</p>
   <div class="fr">
     <div class="fr-row head"><div>Color Style</div><div>Claro</div><div>Escuro</div></div>
-    <div class="fr-row"><div class="nm">bg / Fundo</div><div class="val"><span class="fr-sw" style="background:#FFFFFF"></span>#FFFFFF</div><div class="val"><span class="fr-sw" style="background:#0A070E"></span>#0A070E</div></div>
+    <div class="fr-row"><div class="nm">bg / Fundo</div><div class="val"><span class="fr-sw" style="background:#FAFAFA"></span>#FAFAFA</div><div class="val"><span class="fr-sw" style="background:#0A070E"></span>#0A070E</div></div>
     <div class="fr-row"><div class="nm">bg / Superfície</div><div class="val"><span class="fr-sw" style="background:#F5F1FB"></span>#F5F1FB</div><div class="val"><span class="fr-sw" style="background:#130D1A"></span>#130D1A</div></div>
     <div class="fr-row"><div class="nm">bg / Cartão</div><div class="val"><span class="fr-sw" style="background:#FAF7FE"></span>#FAF7FE</div><div class="val"><span class="fr-sw" style="background:#1B1225"></span>#1B1225</div></div>
     <div class="fr-row"><div class="nm">line / Borda</div><div class="val"><span class="fr-sw" style="background:rgba(100,67,137,.16)"></span>rgba(100,67,137,.16)</div><div class="val"><span class="fr-sw" style="background:rgba(162,137,215,.14)"></span>rgba(162,137,215,.14)</div></div>
@@ -1951,4 +1951,3 @@ body{font-family:'Silka','Poppins',system-ui,-apple-system,Segoe UI,Roboto,sans-
 })();
 </script>
 </body></html>
-

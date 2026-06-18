@@ -18,11 +18,11 @@ Três camadas, nesta ordem:
 
 /* 2) Segue o sistema: se o SO está em light e o usuário NÃO escolheu manualmente */
 @media (prefers-color-scheme: light){
-  :root:not([data-theme="dark"]){ --bg:#FFFFFF; --txt:#241733; /* … light … */ color-scheme:light; }
+  :root:not([data-theme="dark"]){ --bg:#FAFAFA; --txt:#241733; /* … light … */ color-scheme:light; }
 }
 
 /* 3) Escolha manual do usuário (toggle) vence o sistema */
-[data-theme="light"]{ --bg:#FFFFFF; --txt:#241733; /* … light … */ color-scheme:light; }
+[data-theme="light"]{ --bg:#FAFAFA; --txt:#241733; /* … light … */ color-scheme:light; }
 [data-theme="dark"]{ /* herda o :root dark */ }
 ```
 

@@ -1,7 +1,7 @@
 {
   "$meta": {
     "name": "Facial Class Design System",
-    "version": "1.0.0",
+    "version": "1.4.2",
     "author": "Edegar Junior",
     "source": "Brandbook Facial Academy 2022 (§3.3)",
     "language": "pt-BR",
@@ -27,10 +27,11 @@
       "rose": "#FFB1BD", "roseInk": "#FFB1BD", "roseLine": "rgba(255,177,189,.42)",
       "peach": "#FFCA9B", "logo": "#FFFFFF",
       "success": "#45C08A", "warning": "#E8B53D", "danger": "#FF7D93", "info": "#A289D7",
+      "successBg": "rgba(69,192,138,.14)", "warningBg": "rgba(232,181,61,.14)", "dangerBg": "rgba(255,125,147,.14)", "infoBg": "rgba(162,137,215,.14)", "rowSel": "rgba(162,137,215,.16)",
       "shadow": "rgba(100,67,137,.40)", "shadowStrong": "rgba(100,67,137,.50)"
     },
     "light": {
-      "bg": "#FFFFFF", "bg2": "#F5F1FB", "card": "#FAF7FE", "card2": "#F1EAFA",
+      "bg": "#FAFAFA", "bg2": "#F5F1FB", "card": "#FAF7FE", "card2": "#F1EAFA",
       "line": "rgba(100,67,137,.16)",
       "roxo": "#3A274F", "roxo2": "#644389", "roxoBright": "#7C5EA7",
       "lilas": "#644389", "lilasSoft": "#6E59A6",
@@ -38,7 +39,8 @@
       "gold": "#FFE4A4", "goldDeep": "#D6C08A", "goldInk": "#7A5A0E", "goldLine": "rgba(122,90,14,.55)",
       "rose": "#FFB1BD", "roseInk": "#B04A5E", "roseLine": "rgba(176,74,94,.50)",
       "peach": "#FFCA9B", "logo": "#644389",
-      "success": "#147A45", "warning": "#8A5A00", "danger": "#C72F49", "info": "#5E4A8C",
+      "success": "#147A45", "warning": "#8A5A00", "danger": "#BE2C45", "info": "#5E4A8C",
+      "successBg": "rgba(31,138,91,.10)", "warningBg": "rgba(138,90,0,.10)", "dangerBg": "rgba(199,47,73,.10)", "infoBg": "rgba(94,74,140,.10)", "rowSel": "rgba(100,67,137,.10)",
       "shadow": "rgba(100,67,137,.18)", "shadowStrong": "rgba(100,67,137,.26)"
     }
   },
@@ -47,7 +49,7 @@
     "roles": { "raised": "1", "overlay": "3", "modal": "4" },
     "dark": {
       "1": "0 1px 2px rgba(0,0,0,.34), 0 2px 6px rgba(0,0,0,.30)", "2": "0 2px 4px rgba(0,0,0,.34), 0 8px 18px rgba(0,0,0,.40)",
-      "3": "0 4px 10px rgba(100,67,137,.30), 0 16px 36px rgba(100,67,137,.42)", "4": "0 8px 20px rgba(100,67,137,.34), 0 28px 60px rgba(100,67,137,.52)"
+      "3": "0 4px 12px rgba(0,0,0,.45), 0 16px 36px rgba(0,0,0,.55)", "4": "0 10px 24px rgba(0,0,0,.5), 0 28px 64px rgba(0,0,0,.62)"
     },
     "light": {
       "1": "0 1px 2px rgba(100,67,137,.10), 0 2px 6px rgba(100,67,137,.08)", "2": "0 2px 4px rgba(100,67,137,.10), 0 8px 16px rgba(100,67,137,.12)",
@@ -61,7 +63,7 @@
     "borderWidth": { "hair": "1px", "1": "1px", "2": "2px" },
     "blur": { "sm": "6px", "md": "12px", "lg": "20px" },
     "breakpoint": { "phone": "390px", "tablet": "810px", "desktop": "1200px" },
-    "size": { "iconSm": "16px", "icon": "20px", "iconLg": "24px", "controlH": "44px", "touchMin": "44px" },
+    "size": { "iconSm": "16px", "icon": "20px", "iconLg": "24px", "controlH": "44px", "touchMin": "44px", "rowH": "46px", "rowHCompact": "38px", "sideW": "248px", "calCell": "38px" },
     "aspectRatio": { "square": "1/1", "photo": "4/3", "wide": "16/9" }
   },
   "space":  { "1": "4px", "2": "8px", "3": "12px", "4": "16px", "6": "24px", "8": "32px", "12": "48px" },
