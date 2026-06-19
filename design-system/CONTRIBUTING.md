@@ -7,10 +7,19 @@ Vale para a web (HTML/CSS + tokens) e para o Framer.
 
 1. **Token-first.** Nunca use hex/raio/sombra solto — consuma os tokens. O token
    semântico **nunca sugere valor** (`--btn-bg`, não `--roxo-500`); o de componente
-   referencia o semântico, nunca o primitivo direto.
-2. **Paridade dark/light + WCAG AA.** Toda cor de texto precisa passar contraste
-   (≥ 4.5:1 texto normal, ≥ 3:1 texto grande) nos **dois** temas. Cor nunca comunica
-   sozinha — sempre acompanhada de ícone ou texto.
+   referencia o semântico, nunca o primitivo direto. Caso real do sistema: os botões
+   de CTA (`.b.fill` / `.fc-btn.fc-fill` e variantes solid) consomem o token
+   theme-aware **`--cta`** (`--cta-grad` / `--cta-solid` / `--cta-solid-h` / `--cta-ink`),
+   **nunca** `--roxo2` / `--roxo-bright` diretamente.
+2. **Paridade dark/light + WCAG AA (acessibilidade em 2 níveis).** O contraste é
+   verificado nos **dois** temas em dois níveis:
+   - **(1) Texto** — toda cor de texto precisa passar contraste (≥ 4.5:1 texto
+     normal, ≥ 3:1 texto grande).
+   - **(2) Componente/botão vs. fundo** — elementos não-texto precisam de ≥ 3:1
+     contra o fundo (WCAG 1.4.11, *Non-text Contrast*). Botões preenchidos/sólidos
+     têm de passar o nível 2 contra o fundo em **ambos** os temas.
+
+   Cor nunca comunica sozinha — sempre acompanhada de ícone ou texto.
 3. **A11y by design.** Foco visível em tudo que é focável, navegação por teclado e
    semântica HTML correta entram desde o início, não como auditoria depois.
 
@@ -24,7 +33,8 @@ Antes disso, é um padrão local. Isso evita inchar o sistema com peças de uso 
 Um componente só fecha quando tem **os quatro**:
 
 - **Design** — todos os estados, variantes e tamanhos.
-- **A11y** — teclado, foco e semântica.
+- **A11y** — teclado, foco e semântica + contraste em 2 níveis (texto ≥ 4.5:1 e
+  componente/botão vs. fundo ≥ 3:1, WCAG 1.4.11), verificado nos **dois** temas.
 - **Código** — implementação consumindo tokens.
 - **Doc** — quando usar, quando não usar (do/don't) e exemplo.
 

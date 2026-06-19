@@ -14,7 +14,10 @@ Três camadas, nesta ordem:
 
 ```css
 /* 1) Base = dark (padrão) */
-:root{ --bg:#0A070E; --txt:#F9F8FD; /* … todos os tokens dark … */ color-scheme:dark; }
+:root{ --bg:#0A070E; --txt:#F9F8FD; /* … todos os tokens dark … */
+       /* CTA theme-aware (dark): roxo MAIS CLARO #7C5EA7 */
+       --cta-grad:linear-gradient(120deg,#7C5EA7,#6E51A0); --cta-solid:#7C5EA7; --cta-solid-h:#6E51A0; --cta-ink:#fff;
+       color-scheme:dark; }
 
 /* 2) Segue o sistema: se o SO está em light e o usuário NÃO escolheu manualmente */
 @media (prefers-color-scheme: light){
@@ -30,6 +33,17 @@ Resultado:
 - SO dark + sem escolha → **dark**
 - SO light + sem escolha → **light** (automático)
 - `data-theme` definido → **vence** o sistema
+
+### CTA theme-aware (`--cta`)
+
+O botão de ação principal (preenchido/sólido) também é um token com par **Light/Dark**: `--cta-grad` / `--cta-solid` / `--cta-solid-h` / `--cta-ink`.
+
+- **Tema escuro:** o CTA usa roxo **MAIS CLARO** `#7C5EA7` — gradiente `#7C5EA7 → #6E51A0`, hover `#6E51A0`, texto branco (`--cta-ink:#fff`).
+- **Tema claro:** o CTA = `#644389` (texto branco).
+
+> No dark o valor antes era `#644389`, que **apagava** sobre o fundo escuro (~2.6:1 vs. fundo) e reprovava na **WCAG 1.4.11** (contraste de componente); por isso foi clareado para `#7C5EA7`.
+
+Os botões preenchidos/sólidos (`.b.fill` / `.fc-btn.fc-fill` e a variante solid) **consomem o token `--cta`** (`--cta-grad` no fill, `--cta-solid` + `--cta-solid-h` no solid, `--cta-ink` no texto) — **nunca** `--roxo2` / `--roxo-bright` diretamente. Assim o CTA troca de tema sozinho e mantém o contraste de componente.
 
 ### Toggle (anti-flash + persistente)
 No `<head>`, **antes** da pintura, pra não piscar:
@@ -49,6 +63,10 @@ btn.addEventListener('click',function(){
 
 > `color-scheme` em cada tema faz scrollbars/controles nativos acompanharem. No light, dourado/rosa como **texto** usam as variantes `-ink`.
 
+> **Acessibilidade em 2 níveis** (vale para botões/CTA e contraste em geral):
+> 1. **Texto** ≥ **4.5:1** (AA) — ex.: no light, dourado/rosa usam as variantes `-ink`.
+> 2. **Componente/botão vs. fundo** ≥ **3:1** (WCAG 1.4.11, *Non-text Contrast*) — ex.: o CTA do tema escuro foi clareado para `#7C5EA7` justamente para passar este nível, que o valor anterior `#644389` (~2.6:1 vs. fundo) não cumpria.
+
 ---
 
 ## 2. Framer — como deve ser feito
@@ -67,4 +85,6 @@ btn.addEventListener('click',function(){
 - [ ] `prefers-color-scheme` ativo (web: o `@media`; Framer: Color Styles com Dark).
 - [ ] Toggle opcional persiste a escolha (`fc-theme`) e sobrepõe o sistema.
 - [ ] No light, texto dourado/rosa usa `-ink` (contraste AA).
+- [ ] Botões fill/solid consomem `--cta` (`--cta-grad`/`--cta-solid`/`--cta-solid-h`/`--cta-ink`), nunca `--roxo2`/`--roxo-bright` direto.
+- [ ] Acessibilidade em **2 níveis**: (1) texto ≥ 4.5:1 (AA, ex. tokens `-ink`); (2) componente/botão vs. fundo ≥ 3:1 (WCAG 1.4.11). O CTA escuro `#7C5EA7` passa o nível 2.
 - [ ] Testar nos dois temas (contraste e legibilidade).

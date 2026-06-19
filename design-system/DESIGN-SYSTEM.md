@@ -1,6 +1,6 @@
 # Facial Class — Design System
 
-**Versão 1.0** · Desenvolvido por **Edegar Junior** · Derivado do brandbook **Facial Academy 2022** (§3.3).
+**Versão 1.0.0** · Desenvolvido por **Edegar Junior**.
 
 Sistema de design portátil para web (HTML/CSS, React, Framer). Dark por padrão, light por troca de tema. Esta pasta é a **fonte da verdade** para aplicar a marca em qualquer projeto.
 
@@ -63,6 +63,11 @@ Importe `facial-design-tokens.json` e gere variáveis no seu formato (CSS vars, 
 <script>(function(){try{var t=localStorage.getItem('fc-theme');if(t!=='light'&&t!=='dark')t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
 ```
 No light, **dourado e rosa como texto** usam variantes `-ink` (`--gold-ink`, `--rose-ink`); como preenchimento mantêm a cor institucional. A marca (`--logo`) é branca no dark e roxa no light.
+
+#### CTA theme-aware — token `--cta`
+O **CTA** (botão de ação primário, preenchido/sólido) consome o token de componente `--cta` e seus derivados: **`--cta-grad`** (gradiente) · **`--cta-solid`** (cor sólida) · **`--cta-solid-h`** (hover) · **`--cta-ink`** (texto). É **theme-aware** por **acessibilidade de contraste de componente** (WCAG 1.4.11):
+- **Tema escuro:** roxo **mais claro** `#7C5EA7` (gradiente `#7C5EA7 → #6E51A0`; hover `#6E51A0`; texto branco `#fff`). O valor escuro anterior (`#644389`) reprovava sobre o fundo escuro (~**2.6:1** vs fundo) e foi clareado para passar o **nível 2** de contraste.
+- **Tema claro:** mantém `#644389` (texto branco `#fff`), **inalterado**.
 
 ### Tokens de sistema
 - **Raio:** sm 8 · md 14 · lg 18 · pill 30
@@ -177,7 +182,8 @@ Somente cores do brand. **Não usar conic, blob nem halo** — preferir **meshes
 
 ### Botão — `fc-btn`
 `class="fc-btn <variante> <tamanho>"`
-- **Variantes:** `fc-fill` (gradiente roxo, primário) · `fc-solid` · `fc-outline` · `fc-ghost` (texto) · `fc-gold` · `fc-gold-o`
+- **Variantes:** `fc-fill` (gradiente do CTA via `--cta`, primário) · `fc-solid` (sólido via `--cta`) · `fc-outline` · `fc-ghost` (texto) · `fc-gold` · `fc-gold-o`
+  - Os botões preenchidos/sólidos (`.b.fill` / `.fc-btn.fc-fill` e solid) consomem o token de componente `--cta` (`--cta-grad` / `--cta-solid` / `--cta-solid-h` / `--cta-ink`) — **não mais** `--roxo2` / `--roxo-bright` direto.
 - **Tamanhos:** `fc-sm` · (md = padrão) · `fc-lg`
 - **Estados:** hover · `:active` · `:focus-visible` · `:disabled` / `[aria-disabled]`
 - **Regras:** altura mínima 44px, raio pill, ícone Phosphor opcional (`<svg class="fc-ico">`). Use `<button>` (não `<a>` sem href) para ser focável.
@@ -191,7 +197,7 @@ Sempre **ícone + texto**, nunca só cor. Verde/âmbar/vermelho saem da paleta d
 ---
 
 ## Acessibilidade (obrigatório)
-- **Contraste WCAG AA:** texto ≥4.5:1, grande/UI ≥3:1. No light, dourado/rosa como texto = `-ink`.
+- **Contraste WCAG AA em 2 níveis:** (1) **texto** ≥4.5:1; (2) **componente/botão vs fundo** ≥3:1 (**WCAG 1.4.11 — Non-text Contrast**). No light, dourado/rosa como texto = `-ink`. O CTA do **tema escuro** foi clareado para `#7C5EA7` justamente para passar o **nível 2** (componente vs fundo); o `#644389` antigo reprovava (~2.6:1).
 - **Foco visível:** `outline:2px solid var(--lilas)` + `box-shadow var(--focus)`; guard `@media (forced-colors: active)`.
 - **`prefers-reduced-motion`:** reduzir transições/animações.
 - **Toque ≥44px.** **Cor nunca sozinha** (estados com ícone+texto).
@@ -213,5 +219,5 @@ O sistema evolui sob governança: veja **`CONTRIBUTING.md`** (princípios, regra
 Ao aplicar este design system em um projeto, **leia `facial-design-tokens.json`** e siga as regras acima. Prompt sugerido:
 
 > Você vai aplicar o **Facial Class Design System** (autor: Edegar Junior). Fonte da verdade: `facial-design-tokens.json` + `facial-design-system.css` desta pasta.
-> Regras inegociáveis: (1) só use as 7 cores institucionais e seus derivados — nada de hex fora da paleta; (2) componha tudo com os tokens (nunca hex solto); (3) entregue **dark e light** com paridade, dark por padrão e light via `data-theme="light"`; (4) tipografia **Silka** com a escala responsiva por breakpoint (Desktop/Tablet/Phone) usando `clamp()`, body ≥16px no mobile; (5) ícones **Phosphor peso Thin** com `currentColor`; (6) gradientes **só meshes/lineares do brand — sem conic/blob/halo**; (7) acessibilidade WCAG AA: foco visível, `prefers-reduced-motion`, toque ≥44px, cor nunca sozinha; (8) botão = `<button>` com as variantes `fc-*`.
-> Antes de finalizar, verifique contraste nos dois temas e ausência de scroll horizontal de 320px a 1440px.
+> Regras inegociáveis: (1) só use as 7 cores institucionais e seus derivados — nada de hex fora da paleta; (2) componha tudo com os tokens (nunca hex solto) — o **CTA** (botões `fc-fill`/`fc-solid`) usa o token theme-aware `--cta` (`--cta-grad`/`--cta-solid`/`--cta-solid-h`/`--cta-ink`), **não** `--roxo2`/`--roxo-bright` direto; (3) entregue **dark e light** com paridade, dark por padrão e light via `data-theme="light"`; (4) tipografia **Silka** com a escala responsiva por breakpoint (Desktop/Tablet/Phone) usando `clamp()`, body ≥16px no mobile; (5) ícones **Phosphor peso Thin** com `currentColor`; (6) gradientes **só meshes/lineares do brand — sem conic/blob/halo**; (7) acessibilidade WCAG AA em **2 níveis** — (a) texto ≥4.5:1 e (b) componente/botão vs fundo ≥3:1 (**WCAG 1.4.11**) — além de foco visível, `prefers-reduced-motion`, toque ≥44px, cor nunca sozinha; (8) botão = `<button>` com as variantes `fc-*`.
+> Antes de finalizar, verifique o contraste nos dois temas em **2 níveis** (texto ≥4.5:1 e componente/botão vs fundo ≥3:1, WCAG 1.4.11) e a ausência de scroll horizontal de 320px a 1440px.

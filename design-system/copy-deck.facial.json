@@ -1,5 +1,13 @@
 {
-  "meta": { "brand": "facial", "lang": "pt-BR", "version": "1.0" },
+  "meta": { "brand": "facial", "lang": "pt-BR", "version": "1.0.0" },
+  "changelog": [
+    { "version": "1.0.0", "date": "2026-06-19", "changes": [
+      "Token --cta theme-aware introduzido para o CTA (botão preenchido/sólido): tokens --cta-grad, --cta-solid, --cta-solid-h e --cta-ink.",
+      "CTA do tema escuro clareado de #644389 para #7C5EA7 (gradiente #7C5EA7->#6E51A0, hover #6E51A0, texto #fff) para passar WCAG 1.4.11 (contraste de componente vs fundo >=3:1); antes #644389 reprovava (~2.6:1 no fundo escuro). Tema claro mantém --cta #644389 (inalterado, texto #fff).",
+      "Botões fill/solid (.b.fill/.fc-btn.fc-fill) passam a consumir --cta em vez de --roxo2/--roxo-bright direto.",
+      "Acessibilidade agora documentada em 2 níveis: texto >=4.5:1 e componente/botão vs fundo >=3:1 (WCAG 1.4.11)."
+    ] }
+  ],
   "sections": {
     "hero": {
       "h1": "Pare de construir no escuro.",
@@ -10,10 +18,10 @@
     "gradientes": { "note": "Gradientes da marca em malhas (mesh) e lineares. Sem cônico, sem blob, sem halo." },
     "tipografia": { "note": "Silka em escala responsiva por breakpoint. Corpo com no mínimo 16px no mobile para evitar o zoom no iOS." },
     "icones": { "note": "Biblioteca Phosphor, peso Thin, traço de 1pt, herdando a cor por currentColor. O ícone nunca substitui o rótulo." },
-    "botoes": { "note": "Variantes e tamanhos com altura mínima de 44px e raio pill. O rótulo sempre diz a ação (Salvar protocolo, não Enviar)." },
+    "botoes": { "note": "Variantes e tamanhos com altura mínima de 44px e raio pill. O rótulo sempre diz a ação (Salvar protocolo, não Enviar). O botão preenchido/sólido (.b.fill/.fc-btn.fc-fill) usa o token theme-aware --cta (CTA mais claro #7C5EA7 no tema escuro, #644389 no claro) para garantir contraste de componente vs fundo >=3:1 (WCAG 1.4.11). Texto do botão sempre branco (--cta-ink:#fff)." },
     "feedback": { "note": "Alerts, toasts e status nos quatro tons. Sempre ícone e texto juntos: a cor não comunica sozinha." },
     "avancados": { "note": "Componentes de aplicação: data table, command palette, date picker e navegação. Conteúdo de exemplo do domínio de Harmonização Facial." },
-    "acessibilidade": { "note": "Contraste WCAG AA, foco visível, alvo de toque de 44px e respeito a movimento reduzido. A mensagem de erro diz o que houve e como resolver." },
+    "acessibilidade": { "note": "Contraste WCAG AA em dois níveis: texto >=4.5:1 e componentes/botões vs fundo >=3:1 (1.4.11). Foco visível, alvo de toque de 44px e respeito a movimento reduzido. A mensagem de erro diz o que houve e como resolver." },
     "fundamentos": { "note": "Cores, tipografia, espaçamento e raio: a base que todo componente consome via token." },
     "principios": { "note": "Consistência por token, paridade entre claro e escuro, acessibilidade por padrão. Decida uma vez, reaplique em todo lugar." },
     "tokens": { "note": "Valores legíveis por máquina para tema, espaçamento, raio, elevação e movimento. O componente lê o token, não o valor solto." }

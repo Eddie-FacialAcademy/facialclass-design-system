@@ -60,7 +60,7 @@ O toggle (`#themeToggle`, `.theme-toggle`, com `aria-pressed`) alterna `data-the
 
 ### 2.2 Cores institucionais (brand) — base imutável
 
-7 cores do brandbook Facial Academy 2022. Nada deve sair daqui.
+7 cores institucionais da Facial Academy. Nada deve sair daqui.
 
 | Token | Hex | Papel |
 |---|---|---|
@@ -87,13 +87,19 @@ Os `--brand-*` **não** mudam entre temas; os tokens de tema abaixo é que deriv
 | `--mut` | `#C2BAD0` | `#6B5C87` | texto secundário |
 | `--legal-mut` | `#826DAD` | `#6B5C87` | texto legal/rodapé |
 | `--roxo` | `#3A274F` | `#3A274F` | roxo profundo (gradiente) |
-| `--roxo2` | `#644389` | `#644389` | primária (fill/seleção) |
-| `--roxo-bright` | `#7C5EA7` | `#7C5EA7` | hover sólido |
+| `--roxo2` | `#644389` | `#644389` | primária (seleção/primária não-CTA) |
+| `--roxo-bright` | `#7C5EA7` | `#7C5EA7` | roxo claro (não-CTA; o hover do CTA sólido é `--cta-solid-h`) |
+| `--cta-grad` | `linear-gradient #7C5EA7→#6E51A0` | `#644389` sólido | gradiente do CTA (fill) |
+| `--cta-solid` | `#7C5EA7` | `#644389` | cor sólida do CTA (solid) |
+| `--cta-solid-h` | `#6E51A0` | hover do light | hover do CTA sólido |
+| `--cta-ink` | `#fff` | `#fff` | texto sobre o CTA |
 | `--lilas` | `#A289D7` | `#644389` | **accent interativo** (links, ativo, foco) |
 | `--lilas-soft` | `#B39EDE` | `#6E59A6` | accent hover |
 | `--logo` | `#FFFFFF` | `#644389` | cor do lockup SVG |
 | `--gold` / `--gold-ink` | `#FFE4A4` / `#FFE4A4` | `#FFE4A4` / `#7A5A0E` | dourado fill / texto |
 | `--rose` / `--rose-ink` | `#FFB1BD` / `#FFB1BD` | `#FFB1BD` / `#B04A5E` | rosa fill / texto |
+
+> **CTA theme-aware (a11y de componente, WCAG 1.4.11):** a família `--cta` é a camada de componente do botão de ação principal (fill/solid). No **tema escuro** o CTA foi clareado para `#7C5EA7` (gradiente `#7C5EA7→#6E51A0`, hover `#6E51A0`); o valor antigo `#644389` dava ~2.6:1 sobre o fundo escuro e reprovava o contraste de componente (Non-text Contrast). No **tema claro** o CTA permanece `#644389` **inalterado**. Texto sempre `--cta-ink` (`#fff`) nos dois temas.
 
 **Semânticas** (texto sempre com ícone/label junto, nunca cor sozinha):
 
@@ -143,7 +149,7 @@ JSON customizado (não Style Dictionary; sem `$value/$type`), com temas separado
   space, zIndex, motion, focus, typography:{fontFamily,weights,styles{...}},
   components:{button,statusColors}, icons, gradients, accessibility }
 ```
-Consuma gerando suas variáveis (CSS vars, JS, Tailwind theme). **Regra de ouro:** componente lê token, nunca hex solto.
+`components.button` (espelhado em `color.dark`/`color.light`) inclui os tokens **`--cta` theme-aware** (`--cta-grad` / `--cta-solid` / `--cta-solid-h` / `--cta-ink`), refletindo a família adicionada na Seção 2.3 — assim o consumo via Framer/Tailwind também usa o CTA clareado (`#7C5EA7`) no tema escuro. Consuma gerando suas variáveis (CSS vars, JS, Tailwind theme). **Regra de ouro:** componente lê token, nunca hex solto.
 
 ---
 
@@ -211,14 +217,14 @@ Classe base **`.b`** (drop-in: `.fc-btn`). Composição: `.b` + tamanho (`.sm`/`
 
 ### 4.2 Variantes e estados (hover/active)
 ```css
-/* Preenchido (gradiente + glow) */
-.b.fill{background:linear-gradient(120deg,var(--roxo2),var(--roxo));color:#fff;box-shadow:0 10px 30px var(--sh)}
+/* Preenchido (gradiente do CTA theme-aware + glow) */
+.b.fill{background:var(--cta-grad);color:var(--cta-ink);box-shadow:0 10px 30px var(--sh)}
 .b.fill:hover{transform:translateY(-2px);box-shadow:0 16px 38px var(--sh-strong)}   /* sobe + glow cresce */
 .b.fill:active{box-shadow:0 6px 18px var(--sh)}                                      /* glow recua */
 
-/* Sólido */
-.b.solid{background:var(--roxo2);color:#fff}
-.b.solid:hover{background:var(--roxo-bright)}
+/* Sólido (CTA theme-aware) */
+.b.solid{background:var(--cta-solid);color:var(--cta-ink)}
+.b.solid:hover{background:var(--cta-solid-h)}
 
 /* Contorno */
 .b.outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
@@ -242,7 +248,7 @@ Classe base **`.b`** (drop-in: `.fc-btn`). Composição: `.b` + tamanho (`.sm`/`
 .b:focus-visible{outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus)}
 @media (max-width:560px){.b{white-space:normal;text-align:center}}
 ```
-**Resumo da microinteração do botão:** `transition:.2s var(--ease)` (transform + box-shadow + cor); `fill` levanta 2px no hover e o glow (`--sh`→`--sh-strong`) intensifica; `:active` faz `scale(.985)` em `.15s`. O **glow vive só no botão** (cartões não usam glow). Alvo de toque mínimo 44px (`min-height`).
+**Resumo da microinteração do botão:** `transition:.2s var(--ease)` (transform + box-shadow + cor); `fill` levanta 2px no hover e o glow (`--sh`→`--sh-strong`) intensifica; `:active` faz `scale(.985)` em `.15s`. O **glow vive só no botão** (cartões não usam glow). Alvo de toque mínimo 44px (`min-height`). A **cor de preenchimento** do `fill`/`solid` vem dos tokens `--cta` (theme-aware), **distinta** de `--roxo2` (que segue sendo seleção/primária não-CTA); no tema escuro o CTA usa o roxo mais claro `#7C5EA7` por contraste de componente (WCAG 1.4.11).
 
 ### 4.4 Framer (`Button.tsx`)
 Code Component com Property Controls:
@@ -251,7 +257,7 @@ label:string · variant:"fill|solid|outline|ghost|gold|gold-o"=fill ·
 size:"sm|md|lg"=md · showIcon:boolean=true · iconPosition:"left|right"=right ·
 link:string · newTab:boolean · disabled:boolean · style:CSSProperties
 ```
-Mapeia 1:1 para as variantes/tamanhos acima. Ícone via Phosphor (ArrowRight padrão), `currentColor`.
+Mapeia 1:1 para as variantes/tamanhos acima. As variantes `fill` e `solid` resolvem para os tokens `--cta` theme-aware (`--cta-grad` / `--cta-solid` / `--cta-solid-h` / `--cta-ink`), garantindo o CTA mais claro (`#7C5EA7`) no tema escuro também no Framer. Ícone via Phosphor (ArrowRight padrão), `currentColor`.
 
 ---
 
@@ -387,7 +393,10 @@ Tudo vanilla, sem dependências. Scripts no fim do `<body>`.
 
 ## 8. Acessibilidade ⭐
 
-- **Contraste WCAG 2.1 AA** medido nos 2 temas (texto normal ≥4.5:1; grande/UI ≥3:1). Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light.
+- **Contraste WCAG 2.1 AA** medido nos 2 temas, em **2 níveis explícitos**:
+  - **(1) Texto** — texto normal ≥ **4.5:1** (texto grande ≥ 3:1).
+  - **(2) Componente/botão vs. fundo** — ≥ **3:1**, conforme **WCAG 1.4.11 (Non-text Contrast)**.
+  Verificado por sweep automatizado (compondo fundos semi-transparentes sobre o pai e desativando transições antes de medir). 0 falhas em dark e light. O **CTA do tema escuro** foi clareado de `#644389` (~2.6:1 vs. fundo, reprovava o nível 2) para `#7C5EA7` (gradiente `#7C5EA7→#6E51A0`) justamente para passar o nível (2); o **CTA do tema claro** (`#644389`) já passa e **permanece inalterado**.
 - **Foco visível:** outline 2px `--lilas` + `box-shadow:var(--focus)` (anel 3px); guard para `forced-colors` (`Highlight`).
 - **Cor nunca sozinha:** todo estado/semântica vem com ícone e/ou texto.
 - **Alvos de toque:** `--touch-min:44px` em botões, `.check`, `.toggle`; controles densos (pager 40, dia do calendário 38) compensam com espaçamento.
@@ -464,7 +473,7 @@ Mesma arquitetura, JS, componentes, escalas e semânticas. Mudam:
 | Sombra (matiz) | `rgba(100,67,137,…)` | `rgba(214,81,92,…)` |
 | Logo no nav | 24px | 30px (lockup com mais respiro) |
 
-**Cores institucionais da Corporal** (brandbook): `--brand-bordo #D6515C` · `--brand-coral #E88A92` · `--brand-amarelo #FFE4A4` · `--brand-vermelho #FFB1BD` · `--brand-amarelado #FFCA9B` · branco · preto. Superfícies/texto no tema são tingidos no bordô (ex.: dark `--bg #0E0708`, `--card #241619`, `--txt #FAF7F8`; light `--bg #FAFAFA`, `--card #FEF8F8`, `--txt #2A1517`). Semânticas success/warning/danger são **iguais** nas duas marcas.
+**Cores institucionais da Corporal:** `--brand-bordo #D6515C` · `--brand-coral #E88A92` · `--brand-amarelo #FFE4A4` · `--brand-vermelho #FFB1BD` · `--brand-amarelado #FFCA9B` · branco · preto. Superfícies/texto no tema são tingidos no bordô (ex.: dark `--bg #0E0708`, `--card #241619`, `--txt #FAF7F8`; light `--bg #FAFAFA`, `--card #FEF8F8`, `--txt #2A1517`). Semânticas success/warning/danger são **iguais** nas duas marcas.
 
 > Trocar de marca = trocar a linha de import (`facial-…`↔`corporal-…`) e o prefixo de classe. O resto do código é idêntico.
 

@@ -1,7 +1,7 @@
 /* ============================================================================
-   FACIAL CLASS · DESIGN SYSTEM — v1.0
+   FACIAL CLASS · DESIGN SYSTEM — v1.0.0
    Desenvolvido por Edegar Junior.
-   Derivado do brandbook Facial Academy 2022 (§3.3).
+   Identidade própria da marca.
    ----------------------------------------------------------------------------
    USO RÁPIDO
      <html lang="pt-BR">                         <!-- dark é o padrão -->
@@ -73,7 +73,7 @@
 
   --font-sans:'Silka','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   color-scheme:dark;
-}
+ --cta-grad:linear-gradient(120deg,#7C5EA7,#6E51A0); --cta-solid:#7C5EA7; --cta-solid-h:#6E51A0; --cta-ink:#fff;}
 
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
 @media (prefers-color-scheme: light){
@@ -94,7 +94,7 @@
     --elev-1:0 1px 2px rgba(100,67,137,.10), 0 2px 6px rgba(100,67,137,.08); --elev-2:0 2px 4px rgba(100,67,137,.10), 0 8px 16px rgba(100,67,137,.12);
     --elev-3:0 4px 10px rgba(100,67,137,.12), 0 16px 32px rgba(100,67,137,.16); --elev-4:0 8px 18px rgba(100,67,137,.14), 0 28px 56px rgba(100,67,137,.22);
     color-scheme:light;
-  }
+   --cta-grad:linear-gradient(120deg,#644389,#3A274F); --cta-solid:#644389; --cta-solid-h:#7C5EA7; --cta-ink:#fff;}
 }
 [data-theme="light"]{
   --bg:#FAFAFA; --bg2:#F5F1FB; --card:#FAF7FE; --card2:#F1EAFA;
@@ -114,7 +114,7 @@
   --elev-3:0 4px 10px rgba(100,67,137,.12), 0 16px 32px rgba(100,67,137,.16); --elev-4:0 8px 18px rgba(100,67,137,.14), 0 28px 56px rgba(100,67,137,.22);
   --logo:#644389;
   color-scheme:light;
-}
+ --cta-grad:linear-gradient(120deg,#644389,#3A274F); --cta-solid:#644389; --cta-solid-h:#7C5EA7; --cta-ink:#fff;}
 
 /* ===== RESET / BASE ======================================================= */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -160,10 +160,10 @@ a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visi
   border-radius:var(--radius-pill);transition:.2s var(--ease);white-space:nowrap;min-height:44px;max-width:100%;padding:14px 26px}
 .fc-btn.fc-sm{font-size:13px;padding:10px 18px;gap:7px}
 .fc-btn.fc-lg{font-size:16px;padding:17px 32px}
-.fc-btn.fc-fill{background:linear-gradient(120deg,var(--roxo2),var(--roxo));color:#fff;box-shadow:0 10px 30px var(--sh)}
+.fc-btn.fc-fill{background:var(--cta-grad);color:var(--cta-ink);box-shadow:0 10px 30px var(--sh)}
 .fc-btn.fc-fill:hover{transform:translateY(-2px);box-shadow:0 16px 38px var(--sh-strong)}
-.fc-btn.fc-solid{background:var(--roxo2);color:#fff}
-.fc-btn.fc-solid:hover{background:var(--roxo-bright)}
+.fc-btn.fc-solid{background:var(--cta-solid);color:var(--cta-ink)}
+.fc-btn.fc-solid:hover{background:var(--cta-solid-h)}
 .fc-btn.fc-outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
 .fc-btn.fc-outline:hover{border-color:var(--lilas);color:var(--lilas)}
 .fc-btn.fc-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}

@@ -34,23 +34,20 @@ export default function Button(props) {
     const variants: Record<string, React.CSSProperties> = {
         fill: {
             background:
-                "linear-gradient(120deg,var(--roxo2,#644389),var(--roxo,#3A274F))",
-            color: "#fff",
-            boxShadow: "0 10px 30px var(--sh,rgba(100,67,137,.40))",
+                "var(--cta-grad,linear-gradient(120deg,#7C5EA7,#6E51A0))",
+            color: "var(--cta-ink,#fff)",
+            boxShadow: "0 10px 30px var(--sh,rgba(124,94,167,.40))",
         },
-        solid: { background: "var(--roxo2,#644389)", color: "#fff" },
+        solid: {
+            background: "var(--cta-solid,#644389)",
+            color: "var(--cta-ink,#fff)",
+        },
         outline: {
             background: "transparent",
             color: "var(--txt,#F9F8FD)",
             border: "1px solid var(--line,rgba(162,137,215,.14))",
         },
         ghost: { background: "transparent", color: "var(--lilas,#A289D7)" },
-        gold: { background: "var(--gold,#FFE4A4)", color: "#140D1B" },
-        "gold-o": {
-            background: "transparent",
-            color: "var(--gold-ink,#FFE4A4)",
-            border: "1px solid var(--gold-line,rgba(255,228,164,.42))",
-        },
     }
 
     const base: React.CSSProperties = {
@@ -102,6 +99,21 @@ export default function Button(props) {
         </>
     )
 
+    // Hover do CTA sólido: clareia para --cta-solid-h (#6E51A0 no tema escuro).
+    const hoverHandlers =
+        variant === "solid" && !disabled
+            ? {
+                  onMouseEnter: (e) => {
+                      e.currentTarget.style.background =
+                          "var(--cta-solid-h,#6E51A0)"
+                  },
+                  onMouseLeave: (e) => {
+                      e.currentTarget.style.background =
+                          "var(--cta-solid,#644389)"
+                  },
+              }
+            : {}
+
     if (link && !disabled) {
         return (
             <a
@@ -109,13 +121,19 @@ export default function Button(props) {
                 target={newTab ? "_blank" : undefined}
                 rel={newTab ? "noopener noreferrer" : undefined}
                 style={base}
+                {...hoverHandlers}
             >
                 {content}
             </a>
         )
     }
     return (
-        <button type="button" style={base} disabled={disabled}>
+        <button
+            type="button"
+            style={base}
+            disabled={disabled}
+            {...hoverHandlers}
+        >
             {content}
         </button>
     )
@@ -126,8 +144,8 @@ addPropertyControls(Button, {
     variant: {
         type: ControlType.Enum,
         title: "Variante",
-        options: ["fill", "solid", "outline", "ghost", "gold", "gold-o"],
-        optionTitles: ["Preenchido", "Sólido", "Contorno", "Inline", "Dourado", "Dourado contorno"],
+        options: ["fill", "solid", "outline", "ghost"],
+        optionTitles: ["Preenchido", "Sólido", "Contorno", "Inline"],
         defaultValue: "fill",
     },
     size: {
