@@ -168,7 +168,7 @@ a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visi
 .fc-btn.fc-outline:hover{border-color:var(--lilas);color:var(--lilas)}
 .fc-btn.fc-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
 .fc-btn.fc-ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
-.fc-btn.fc-gold{background:var(--gold);color:#140D1B}
+.fc-btn.fc-gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
 .fc-btn.fc-gold:hover{background:var(--gold-deep)}
 .fc-btn.fc-gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
 .fc-btn.fc-gold-o:hover{border-color:var(--gold-ink)}
