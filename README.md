@@ -33,6 +33,8 @@ Pacote para aplicar a marca em **qualquer projeto/ferramenta** (web, React, Fram
 
 Repo público `facialclass-design-system` (conta `Eddie-FacialAcademy`), branch `main`, `index.html` na raiz, GitHub Pages. `.git` fora do OneDrive (`AppData\Local\gitdirs\`); line-endings LF (`.gitattributes`). Deploy: editar → `git add/commit/push` (credencial no Cofre do Windows, sem token). Ver `HANDOFF.md`.
 
+**Hospedagem de assets (não apagar):** além do design system, este repo serve imagens em produção via Pages para páginas no Framer. As pastas `crazy-week/` (fotos, logos e ícones da LP Crazy Week), `assets/avatars-b/` (avatares dos depoimentos da variante B da landing) e `tmp-avatars/` são referenciadas por URL direta nas páginas publicadas — remover qualquer arquivo delas quebra imagem no ar.
+
 ## CHANGELOG
 
 ### 1.0.0
