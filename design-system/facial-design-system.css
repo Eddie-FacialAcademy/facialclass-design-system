@@ -1,5 +1,5 @@
 /* ============================================================================
-   FACIAL CLASS · DESIGN SYSTEM — v1.0.0
+   FACIAL CLASS · DESIGN SYSTEM — v1.2.4
    Desenvolvido por Edegar Junior.
    Identidade própria da marca.
    ----------------------------------------------------------------------------
@@ -73,7 +73,7 @@
 
   --font-sans:'Silka','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   color-scheme:dark;
- --cta-grad:linear-gradient(120deg,#7C5EA7,#6E51A0); --cta-solid:#7C5EA7; --cta-solid-h:#6E51A0; --cta-ink:#fff;}
+ --cta-grad:linear-gradient(120deg,#7C5EA7,#7354A7); --cta-solid:#7C5EA7; --cta-solid-h:#7354A7; --cta-ink:#fff;}
 
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
 @media (prefers-color-scheme: light){

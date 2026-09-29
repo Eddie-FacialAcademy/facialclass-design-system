@@ -1,11 +1,11 @@
-# Contribuindo — Facial Class Design System
+# Contribuindo: Facial Class Design System
 
 Este guia descreve **como o sistema evolui** sem virar uma colcha de retalhos.
 Vale para a web (HTML/CSS + tokens) e para o Framer.
 
 ## Princípios inegociáveis
 
-1. **Token-first.** Nunca use hex/raio/sombra solto — consuma os tokens. O token
+1. **Token-first.** Nunca use hex/raio/sombra solto: consuma os tokens. O token
    semântico **nunca sugere valor** (`--btn-bg`, não `--roxo-500`); o de componente
    referencia o semântico, nunca o primitivo direto. Caso real do sistema: os botões
    de CTA (`.b.fill` / `.fc-btn.fc-fill` e variantes solid) consomem o token
@@ -13,17 +13,17 @@ Vale para a web (HTML/CSS + tokens) e para o Framer.
    **nunca** `--roxo2` / `--roxo-bright` diretamente.
 2. **Paridade dark/light + WCAG AA (acessibilidade em 2 níveis).** O contraste é
    verificado nos **dois** temas em dois níveis:
-   - **(1) Texto** — toda cor de texto precisa passar contraste (≥ 4.5:1 texto
+   - **(1) Texto:** toda cor de texto precisa passar contraste (≥ 4.5:1 texto
      normal, ≥ 3:1 texto grande).
-   - **(2) Componente/botão vs. fundo** — elementos não-texto precisam de ≥ 3:1
+   - **(2) Componente/botão vs. fundo:** elementos não-texto precisam de ≥ 3:1
      contra o fundo (WCAG 1.4.11, *Non-text Contrast*). Botões preenchidos/sólidos
      têm de passar o nível 2 contra o fundo em **ambos** os temas.
 
-   Cor nunca comunica sozinha — sempre acompanhada de ícone ou texto.
+   Cor nunca comunica sozinha: sempre acompanhada de ícone ou texto.
 3. **A11y by design.** Foco visível em tudo que é focável, navegação por teclado e
    semântica HTML correta entram desde o início, não como auditoria depois.
 
-## Quando algo vira padrão — regra das 3 equipes
+## Quando algo vira padrão: regra das 3 equipes
 
 Só promovemos a **componente/token oficial** o que tem **3+ usos reais** distintos.
 Antes disso, é um padrão local. Isso evita inchar o sistema com peças de uso único.
@@ -32,17 +32,17 @@ Antes disso, é um padrão local. Isso evita inchar o sistema com peças de uso 
 
 Um componente só fecha quando tem **os quatro**:
 
-- **Design** — todos os estados, variantes e tamanhos.
-- **A11y** — teclado, foco e semântica + contraste em 2 níveis (texto ≥ 4.5:1 e
+- **Design:** todos os estados, variantes e tamanhos.
+- **A11y:** teclado, foco e semântica + contraste em 2 níveis (texto ≥ 4.5:1 e
   componente/botão vs. fundo ≥ 3:1, WCAG 1.4.11), verificado nos **dois** temas.
-- **Código** — implementação consumindo tokens.
-- **Doc** — quando usar, quando não usar (do/don't) e exemplo.
+- **Código:** implementação consumindo tokens.
+- **Doc:** quando usar, quando não usar (do/don't) e exemplo.
 
 ## Versionamento (SemVer) + CHANGELOG
 
 Siga o [SemVer](https://semver.org/lang/pt-BR/): **MAJOR** quebra, **MINOR** adiciona
 retrocompatível, **PATCH** corrige. **Toda** mudança visível entra no `CHANGELOG.md`
-na mesma alteração — sem exceção.
+na mesma alteração, sem exceção.
 
 ## Depreciação
 

@@ -1,7 +1,7 @@
 {
   "$meta": {
     "name": "Facial Class Design System",
-    "version": "1.0.0",
+    "version": "1.2.4",
     "author": "Edegar Junior",
     "source": "Identidade visual própria da marca",
     "language": "pt-BR",
@@ -22,7 +22,7 @@
       "line": "rgba(162,137,215,.14)",
       "roxo": "#3A274F", "roxo2": "#644389", "roxoBright": "#7C5EA7",
       "lilas": "#A289D7", "lilasSoft": "#B39EDE",
-      "cta": "#7C5EA7", "ctaGrad": "linear-gradient(120deg,#7C5EA7,#6E51A0)", "ctaInk": "#fff",
+      "cta": "#7C5EA7", "ctaGrad": "linear-gradient(120deg,#7C5EA7,#7354A7)", "ctaSolidH": "#7354A7", "ctaInk": "#fff",
       "txt": "#F9F8FD", "mut": "#C2BAD0", "legalMut": "#826DAD",
       "gold": "#FFE4A4", "goldDeep": "#D6C08A", "goldInk": "#FFE4A4", "goldLine": "rgba(255,228,164,.42)",
       "rose": "#FFB1BD", "roseInk": "#FFB1BD", "roseLine": "rgba(255,177,189,.42)",
@@ -36,7 +36,7 @@
       "line": "rgba(100,67,137,.16)",
       "roxo": "#3A274F", "roxo2": "#644389", "roxoBright": "#7C5EA7",
       "lilas": "#644389", "lilasSoft": "#6E59A6",
-      "cta": "#644389", "ctaGrad": "linear-gradient(120deg,#644389,#3A274F)", "ctaInk": "#fff",
+      "cta": "#644389", "ctaGrad": "linear-gradient(120deg,#644389,#3A274F)", "ctaSolidH": "#7C5EA7", "ctaInk": "#fff",
       "txt": "#241733", "mut": "#6B5C87", "legalMut": "#6B5C87",
       "gold": "#FFE4A4", "goldDeep": "#D6C08A", "goldInk": "#7A5A0E", "goldLine": "rgba(122,90,14,.55)",
       "rose": "#FFB1BD", "roseInk": "#B04A5E", "roseLine": "rgba(176,74,94,.50)",

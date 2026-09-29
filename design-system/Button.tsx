@@ -34,7 +34,7 @@ export default function Button(props) {
     const variants: Record<string, React.CSSProperties> = {
         fill: {
             background:
-                "var(--cta-grad,linear-gradient(120deg,#7C5EA7,#6E51A0))",
+                "var(--cta-grad,linear-gradient(120deg,#7C5EA7,#7354A7))",
             color: "var(--cta-ink,#fff)",
             boxShadow: "0 10px 30px var(--sh,rgba(124,94,167,.40))",
         },
@@ -99,13 +99,13 @@ export default function Button(props) {
         </>
     )
 
-    // Hover do CTA sólido: clareia para --cta-solid-h (#6E51A0 no tema escuro).
+    // Hover do CTA sólido: clareia para --cta-solid-h (#7354A7 no tema escuro).
     const hoverHandlers =
         variant === "solid" && !disabled
             ? {
                   onMouseEnter: (e) => {
                       e.currentTarget.style.background =
-                          "var(--cta-solid-h,#6E51A0)"
+                          "var(--cta-solid-h,#7354A7)"
                   },
                   onMouseLeave: (e) => {
                       e.currentTarget.style.background =
