@@ -1,7 +1,11 @@
 {
+  "$deprecated": {
+    "note": "Nomes antigos continuam valendo como apelidos até a 2.0. Use os nomes novos.",
+    "map": {"--roxo-bright":"--primary-bright","--lilas-soft":"--accent-soft","--gold-deep":"--highlight-deep","--gold-line":"--highlight-line","--rose-line":"--support-line","--gold-ink":"--highlight-ink","--rose-ink":"--support-ink","--roxo2":"--primary","--lilas":"--accent","--peach":"--glow","--roxo":"--primary-deep","--gold":"--highlight","--rose":"--support","--brand-amarelo":"--brand-dourado","--brand-vermelho":"--brand-rosa","--brand-amarelado":"--brand-pessego","color.*.roxoBright":"color.*.primaryBright","color.*.lilasSoft":"color.*.accentSoft","color.*.goldDeep":"color.*.highlightDeep","color.*.goldLine":"color.*.highlightLine","color.*.roseLine":"color.*.supportLine","color.*.goldInk":"color.*.highlightInk","color.*.roseInk":"color.*.supportInk","color.*.roxo2":"color.*.primary","color.*.lilas":"color.*.accent","color.*.peach":"color.*.glow","color.*.roxo":"color.*.primaryDeep","color.*.gold":"color.*.highlight","color.*.rose":"color.*.support","color.brand.amarelo":"color.brand.dourado","color.brand.vermelho":"color.brand.rosa","color.brand.amarelado":"color.brand.pessego"}
+  },
   "$meta": {
     "name": "Facial Class Design System",
-    "version": "1.2.4",
+    "version": "1.3.0",
     "author": "Edegar Junior",
     "source": "Identidade visual própria da marca",
     "language": "pt-BR",
@@ -14,19 +18,19 @@
 
   "color": {
     "brand": {
-      "roxo": "#644389", "lilas": "#A289D7", "amarelo": "#FFE4A4",
-      "vermelho": "#FFB1BD", "amarelado": "#FFCA9B", "branco": "#FFFFFF", "preto": "#000000"
+      "roxo": "#644389", "lilas": "#A289D7", "dourado": "#FFE4A4",
+      "rosa": "#FFB1BD", "pessego": "#FFCA9B", "branco": "#FFFFFF", "preto": "#000000"
     },
     "dark": {
       "bg": "#0A070E", "bg2": "#130D1A", "card": "#1B1225", "card2": "#22172F",
       "line": "rgba(162,137,215,.14)",
-      "roxo": "#3A274F", "roxo2": "#644389", "roxoBright": "#7C5EA7",
-      "lilas": "#A289D7", "lilasSoft": "#B39EDE",
+      "primaryDeep": "#3A274F", "primary": "#644389", "primaryBright": "#7C5EA7",
+      "accent": "#A289D7", "accentSoft": "#B39EDE",
       "cta": "#7C5EA7", "ctaGrad": "linear-gradient(120deg,#7C5EA7,#7354A7)", "ctaSolidH": "#7354A7", "ctaInk": "#fff",
       "txt": "#F9F8FD", "mut": "#C2BAD0", "legalMut": "#826DAD",
-      "gold": "#FFE4A4", "goldDeep": "#D6C08A", "goldInk": "#FFE4A4", "goldLine": "rgba(255,228,164,.42)",
-      "rose": "#FFB1BD", "roseInk": "#FFB1BD", "roseLine": "rgba(255,177,189,.42)",
-      "peach": "#FFCA9B", "logo": "#FFFFFF",
+      "highlight": "#FFE4A4", "highlightDeep": "#D6C08A", "highlightInk": "#FFE4A4", "highlightLine": "rgba(255,228,164,.42)",
+      "support": "#FFB1BD", "supportInk": "#FFB1BD", "supportLine": "rgba(255,177,189,.42)",
+      "glow": "#FFCA9B", "logo": "#FFFFFF",
       "success": "#45C08A", "warning": "#E8B53D", "danger": "#FF7D93", "info": "#A289D7",
       "successBg": "rgba(69,192,138,.14)", "warningBg": "rgba(232,181,61,.14)", "dangerBg": "rgba(255,125,147,.14)", "infoBg": "rgba(162,137,215,.14)", "rowSel": "rgba(162,137,215,.16)",
       "shadow": "rgba(100,67,137,.40)", "shadowStrong": "rgba(100,67,137,.50)"
@@ -34,13 +38,13 @@
     "light": {
       "bg": "#FAFAFA", "bg2": "#F5F1FB", "card": "#FAF7FE", "card2": "#F1EAFA",
       "line": "rgba(100,67,137,.16)",
-      "roxo": "#3A274F", "roxo2": "#644389", "roxoBright": "#7C5EA7",
-      "lilas": "#644389", "lilasSoft": "#6E59A6",
+      "primaryDeep": "#3A274F", "primary": "#644389", "primaryBright": "#7C5EA7",
+      "accent": "#644389", "accentSoft": "#6E59A6",
       "cta": "#644389", "ctaGrad": "linear-gradient(120deg,#644389,#3A274F)", "ctaSolidH": "#7C5EA7", "ctaInk": "#fff",
       "txt": "#241733", "mut": "#6B5C87", "legalMut": "#6B5C87",
-      "gold": "#FFE4A4", "goldDeep": "#D6C08A", "goldInk": "#7A5A0E", "goldLine": "rgba(122,90,14,.55)",
-      "rose": "#FFB1BD", "roseInk": "#B04A5E", "roseLine": "rgba(176,74,94,.50)",
-      "peach": "#FFCA9B", "logo": "#644389",
+      "highlight": "#FFE4A4", "highlightDeep": "#D6C08A", "highlightInk": "#7A5A0E", "highlightLine": "rgba(122,90,14,.55)",
+      "support": "#FFB1BD", "supportInk": "#B04A5E", "supportLine": "rgba(176,74,94,.50)",
+      "glow": "#FFCA9B", "logo": "#644389",
       "success": "#147A45", "warning": "#8A5A00", "danger": "#BE2C45", "info": "#5E4A8C",
       "successBg": "rgba(31,138,91,.10)", "warningBg": "rgba(138,90,0,.10)", "dangerBg": "rgba(199,47,73,.10)", "infoBg": "rgba(94,74,140,.10)", "rowSel": "rgba(100,67,137,.10)",
       "shadow": "rgba(100,67,137,.18)", "shadowStrong": "rgba(100,67,137,.26)"
@@ -85,7 +89,7 @@
       "Sub/H4":      { "size": [20, 19, 18], "weight": 500, "lineHeight": 1.25, "letterSpacing": "-0.01em" },
       "Sub/H5":      { "size": [17, 16, 16], "weight": 500, "lineHeight": 1.3 },
       "Sub/H6":      { "size": [15, 14, 14], "weight": 500, "lineHeight": 1.35 },
-      "Eyebrow":     { "size": [12, 12, 11], "weight": 600, "lineHeight": 1.2, "letterSpacing": "0.18em", "uppercase": true, "color": "lilas" },
+      "Eyebrow":     { "size": [12, 12, 11], "weight": 600, "lineHeight": 1.2, "letterSpacing": "0.18em", "uppercase": true, "color": "accent" },
       "Lead":        { "size": [18, 17, 16], "weight": 300, "lineHeight": 1.5, "color": "mut" },
       "Body":        { "size": [16, 16, 16], "weight": 300, "lineHeight": 1.65 },
       "BodySmall":   { "size": [14, 13, 13], "weight": 300, "lineHeight": 1.6, "color": "mut" },
@@ -97,7 +101,7 @@
   "components": {
     "button": {
       "radius": "pill", "minHeight": "44px",
-      "variants": ["fill", "solid", "outline", "ghost", "gold", "gold-o"],
+      "variants": ["fill", "solid", "outline", "ghost", "highlight", "highlight-o"],
       "sizes": { "sm": "10px 18px / 13px", "md": "14px 26px / 15px", "lg": "17px 32px / 16px" },
       "states": ["hover", "active", "focus-visible", "disabled"],
       "icon": "Phosphor Thin, currentColor, 18px (15 sm / 19 lg)"
@@ -118,7 +122,7 @@
 
   "accessibility": {
     "contrast": "WCAG AA — texto normal ≥4.5:1, texto grande/UI ≥3:1. No light, dourado/rosa como TEXTO usam -ink.",
-    "focus": "outline:2px solid var(--lilas) + box-shadow var(--focus); guard @media (forced-colors: active).",
+    "focus": "outline:2px solid var(--accent) + box-shadow var(--focus); guard @media (forced-colors: active).",
     "reducedMotion": "Respeitar prefers-reduced-motion.",
     "touchTarget": "≥44px.",
     "colorNotAlone": "Estados semânticos sempre com ícone + texto, nunca só cor."

@@ -1,5 +1,5 @@
 /* ============================================================================
-   FACIAL CLASS · DESIGN SYSTEM — v1.2.4
+   FACIAL CLASS · DESIGN SYSTEM — v1.3.0
    Desenvolvido por Edegar Junior.
    Identidade própria da marca.
    ----------------------------------------------------------------------------
@@ -18,9 +18,9 @@
   /* Cores institucionais — a fonte da verdade. Nada deve sair desta paleta. */
   --brand-roxo:#644389;        /* pantone 7401 U · predominante */
   --brand-lilas:#A289D7;       /* pantone 2655 U */
-  --brand-amarelo:#FFE4A4;     /* 7401 U 25% */
-  --brand-vermelho:#FFB1BD;    /* red 0331 U */
-  --brand-amarelado:#FFCA9B;   /* pantone 712 U */
+  --brand-dourado:#FFE4A4;     /* 7401 U 25% */
+  --brand-rosa:#FFB1BD;    /* red 0331 U */
+  --brand-pessego:#FFCA9B;   /* pantone 712 U */
   --brand-branco:#FFFFFF;
   --brand-preto:#000000;
 
@@ -29,14 +29,14 @@
   --line:rgba(162,137,215,.14);
 
   /* Roxo / lilás / texto */
-  --roxo:#3A274F; --roxo2:var(--brand-roxo); --roxo-bright:#7C5EA7;
-  --lilas:var(--brand-lilas); --lilas-soft:#B39EDE;
+  --primary-deep:#3A274F; --primary:var(--brand-roxo); --primary-bright:#7C5EA7;
+  --accent:var(--brand-lilas); --accent-soft:#B39EDE;
   --txt:#F9F8FD; --mut:#C2BAD0; --legal-mut:#826DAD;
 
   /* Accent quente (-ink = variante de texto; -line = variante de borda) */
-  --gold:var(--brand-amarelo); --gold-deep:#D6C08A; --gold-ink:#FFE4A4; --gold-line:rgba(255,228,164,.42);
-  --rose:var(--brand-vermelho); --rose-ink:#FFB1BD; --rose-line:rgba(255,177,189,.42);
-  --peach:var(--brand-amarelado);
+  --highlight:var(--brand-dourado); --highlight-deep:#D6C08A; --highlight-ink:#FFE4A4; --highlight-line:rgba(255,228,164,.42);
+  --support:var(--brand-rosa); --support-ink:#FFB1BD; --support-line:rgba(255,177,189,.42);
+  --glow:var(--brand-pessego);
 
   /* Marca (cor do logo SVG via currentColor) */
   --logo:#FFFFFF;
@@ -73,19 +73,27 @@
 
   --font-sans:'Silka','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
   color-scheme:dark;
- --cta-grad:linear-gradient(120deg,#7C5EA7,#7354A7); --cta-solid:#7C5EA7; --cta-solid-h:#7354A7; --cta-ink:#fff;}
+ --cta-grad:linear-gradient(120deg,#7C5EA7,#7354A7); --cta-solid:#7C5EA7; --cta-solid-h:#7354A7; --cta-ink:#fff;
+
+  /* Nomes legados (descontinuados na 1.3.0, saem na 2.0): apontam para os nomes novos.
+     Use os nomes novos em código novo. */
+  --roxo-bright:var(--primary-bright); --lilas-soft:var(--accent-soft); --gold-deep:var(--highlight-deep); --gold-line:var(--highlight-line);
+  --rose-line:var(--support-line); --gold-ink:var(--highlight-ink); --rose-ink:var(--support-ink); --roxo2:var(--primary);
+  --lilas:var(--accent); --peach:var(--glow); --roxo:var(--primary-deep); --gold:var(--highlight);
+  --rose:var(--support); --brand-amarelo:var(--brand-dourado); --brand-vermelho:var(--brand-rosa); --brand-amarelado:var(--brand-pessego);
+}
 
 /* Valores do tema light, reutilizados pelos dois seletores abaixo */
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
     --bg:#FAFAFA; --focus-ring:#644389; --bg2:#F5F1FB; --card:#FAF7FE; --card2:#F1EAFA;
     --line:rgba(100,67,137,.16);
-    --roxo:#3A274F; --roxo2:#644389; --roxo-bright:#7C5EA7;
-    --lilas:#644389; --lilas-soft:#6E59A6;
+    --primary-deep:#3A274F; --primary:#644389; --primary-bright:#7C5EA7;
+    --accent:#644389; --accent-soft:#6E59A6;
     --txt:#241733; --mut:#6B5C87; --legal-mut:#6B5C87;
-    --gold:#FFE4A4; --gold-deep:#D6C08A; --gold-ink:#7A5A0E; --gold-line:rgba(122,90,14,.55);
-    --rose:#FFB1BD; --rose-ink:#B04A5E; --rose-line:rgba(176,74,94,.50);
-    --peach:#FFCA9B;
+    --highlight:#FFE4A4; --highlight-deep:#D6C08A; --highlight-ink:#7A5A0E; --highlight-line:rgba(122,90,14,.55);
+    --support:#FFB1BD; --support-ink:#B04A5E; --support-line:rgba(176,74,94,.50);
+    --glow:#FFCA9B;
     --logo:#644389;
     --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5E4A8C;
     --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
@@ -99,12 +107,12 @@
 [data-theme="light"]{
   --bg:#FAFAFA; --focus-ring:#644389; --bg2:#F5F1FB; --card:#FAF7FE; --card2:#F1EAFA;
   --line:rgba(100,67,137,.16);
-  --roxo:#3A274F; --roxo2:#644389; --roxo-bright:#7C5EA7;
-  --lilas:#644389; --lilas-soft:#6E59A6;
+  --primary-deep:#3A274F; --primary:#644389; --primary-bright:#7C5EA7;
+  --accent:#644389; --accent-soft:#6E59A6;
   --txt:#241733; --mut:#6B5C87; --legal-mut:#6B5C87;
-  --gold:#FFE4A4; --gold-deep:#D6C08A; --gold-ink:#7A5A0E; --gold-line:rgba(122,90,14,.55);
-  --rose:#FFB1BD; --rose-ink:#B04A5E; --rose-line:rgba(176,74,94,.50);
-  --peach:#FFCA9B;
+  --highlight:#FFE4A4; --highlight-deep:#D6C08A; --highlight-ink:#7A5A0E; --highlight-line:rgba(122,90,14,.55);
+  --support:#FFB1BD; --support-ink:#B04A5E; --support-line:rgba(176,74,94,.50);
+  --glow:#FFCA9B;
   --logo:#644389;
   --success:#147A45; --warning:#8A5A00; --danger:#BE2C45; --info:#5E4A8C;
   --success-bg:rgba(31,138,91,.10); --warning-bg:rgba(138,90,0,.10);
@@ -121,11 +129,11 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--font-sans);background:var(--bg);color:var(--txt);line-height:1.5;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 img,svg,video{display:block;max-width:100%}
-a{color:var(--lilas);text-decoration:none}
+a{color:var(--accent);text-decoration:none}
 
 /* Acessibilidade: foco visível (WCAG 2.4.7 / 1.4.11) + movimento reduzido */
 a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visible{
-  outline:2px solid var(--lilas);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
+  outline:2px solid var(--accent);outline-offset:2px;box-shadow:var(--focus);border-radius:6px}
 @media (forced-colors: active){
   a:focus-visible,button:focus-visible,.fc-btn:focus-visible{outline:2px solid Highlight!important;outline-offset:2px}
 }
@@ -136,7 +144,7 @@ a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visi
 
 /* ===== TIPOGRAFIA · escala fluida (Desktop ⇄ Phone) ======================= */
 /* Breakpoints Framer de referência: Desktop ≥1200 · Tablet ≤810 · Phone ≤390 */
-.fc-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--lilas);font-weight:600}
+.fc-eyebrow{font-size:clamp(11px,1.4vw,12px);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .fc-h1{font-size:clamp(34px,6vw,60px);font-weight:500;letter-spacing:-.025em;line-height:1.03}
 .fc-h2{font-size:clamp(26px,4vw,38px);font-weight:500;letter-spacing:-.02em;line-height:1.12}
 .fc-h3{font-size:clamp(20px,2.4vw,24px);font-weight:500;line-height:1.2}
@@ -148,7 +156,7 @@ a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visi
 .fc-small{font-size:14px;font-weight:300;color:var(--mut);line-height:1.6}
 .fc-legal{font-size:clamp(11px,1.2vw,12px);font-weight:300;color:var(--legal-mut);line-height:1.5}
 .fc-num{font-size:clamp(32px,4.6vw,44px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-.fc-hl{color:var(--lilas)}
+.fc-hl{color:var(--accent)}
 
 /* ===== BOTÕES =============================================================
    Estrutura: class="fc-btn <variante> <tamanho>"
@@ -165,13 +173,13 @@ a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visi
 .fc-btn.fc-solid{background:var(--cta-solid);color:var(--cta-ink)}
 .fc-btn.fc-solid:hover{background:var(--cta-solid-h)}
 .fc-btn.fc-outline{background:transparent;color:var(--txt);border:1px solid var(--line)}
-.fc-btn.fc-outline:hover{border-color:var(--lilas);color:var(--lilas)}
-.fc-btn.fc-ghost{background:transparent;color:var(--lilas);padding:10px 14px;border-radius:var(--radius-sm)}
-.fc-btn.fc-ghost:hover{color:var(--lilas-soft);text-decoration:underline;text-underline-offset:3px}
-.fc-btn.fc-gold{background:var(--gold);color:#140D1B;border:1px solid var(--gold-ink)}
-.fc-btn.fc-gold:hover{background:var(--gold-deep)}
-.fc-btn.fc-gold-o{background:transparent;color:var(--gold-ink);border:1px solid var(--gold-line)}
-.fc-btn.fc-gold-o:hover{border-color:var(--gold-ink)}
+.fc-btn.fc-outline:hover{border-color:var(--accent);color:var(--accent)}
+.fc-btn.fc-ghost{background:transparent;color:var(--accent);padding:10px 14px;border-radius:var(--radius-sm)}
+.fc-btn.fc-ghost:hover{color:var(--accent-soft);text-decoration:underline;text-underline-offset:3px}
+.fc-btn.fc-highlight,.fc-btn.fc-gold{background:var(--highlight);color:#140D1B;border:1px solid var(--highlight-ink)}
+.fc-btn.fc-highlight:hover,.fc-btn.fc-gold:hover{background:var(--highlight-deep)}
+.fc-btn.fc-highlight-o,.fc-btn.fc-gold-o{background:transparent;color:var(--highlight-ink);border:1px solid var(--highlight-line)}
+.fc-btn.fc-highlight-o:hover,.fc-btn.fc-gold-o:hover{border-color:var(--highlight-ink)}
 .fc-btn:active{transform:translateY(0) scale(.985);transition-duration:var(--motion-fast)}
 .fc-btn:disabled,.fc-btn[aria-disabled="true"]{opacity:.42;pointer-events:none;box-shadow:none;transform:none}
 .fc-ico{width:18px;height:18px;flex:0 0 auto}
@@ -182,7 +190,7 @@ a:focus-visible,button:focus-visible,.fc-btn:focus-visible,[tabindex]:focus-visi
 .fc-chip{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);
   color:var(--txt);font-size:13.5px;padding:9px 16px;border-radius:var(--radius-pill)}
 .fc-badge{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;
-  color:var(--gold-ink);border:1px solid var(--gold-line);padding:4px 10px;border-radius:20px}
+  color:var(--highlight-ink);border:1px solid var(--highlight-line);padding:4px 10px;border-radius:20px}
 .fc-status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;
   padding:9px 15px;border-radius:var(--radius-pill);border:1px solid currentColor}
 .fc-status .fc-ico{width:16px;height:16px}

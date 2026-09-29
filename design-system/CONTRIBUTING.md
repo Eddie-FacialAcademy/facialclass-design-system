@@ -10,7 +10,7 @@ Vale para a web (HTML/CSS + tokens) e para o Framer.
    referencia o semântico, nunca o primitivo direto. Caso real do sistema: os botões
    de CTA (`.b.fill` / `.fc-btn.fc-fill` e variantes solid) consomem o token
    theme-aware **`--cta`** (`--cta-grad` / `--cta-solid` / `--cta-solid-h` / `--cta-ink`),
-   **nunca** `--roxo2` / `--roxo-bright` diretamente.
+   **nunca** `--primary` / `--primary-bright` diretamente.
 2. **Paridade dark/light + WCAG AA (acessibilidade em 2 níveis).** O contraste é
    verificado nos **dois** temas em dois níveis:
    - **(1) Texto:** toda cor de texto precisa passar contraste (≥ 4.5:1 texto

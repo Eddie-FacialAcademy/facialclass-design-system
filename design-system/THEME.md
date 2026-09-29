@@ -43,7 +43,7 @@ O botão de ação principal (preenchido/sólido) também é um token com par **
 
 > No dark o valor antes era `#644389`, que **apagava** sobre o fundo escuro (~2.6:1 vs. fundo) e reprovava na **WCAG 1.4.11** (contraste de componente); por isso foi clareado para `#7C5EA7`.
 
-Os botões preenchidos/sólidos (`.b.fill` / `.fc-btn.fc-fill` e a variante solid) **consomem o token `--cta`** (`--cta-grad` no fill, `--cta-solid` + `--cta-solid-h` no solid, `--cta-ink` no texto), **nunca** `--roxo2` / `--roxo-bright` diretamente. Assim o CTA troca de tema sozinho e mantém o contraste de componente.
+Os botões preenchidos/sólidos (`.b.fill` / `.fc-btn.fc-fill` e a variante solid) **consomem o token `--cta`** (`--cta-grad` no fill, `--cta-solid` + `--cta-solid-h` no solid, `--cta-ink` no texto), **nunca** `--primary` / `--primary-bright` diretamente. Assim o CTA troca de tema sozinho e mantém o contraste de componente.
 
 ### Toggle (anti-flash + persistente)
 No `<head>`, **antes** da pintura, pra não piscar:
@@ -85,6 +85,6 @@ btn.addEventListener('click',function(){
 - [ ] `prefers-color-scheme` ativo (web: o `@media`; Framer: Color Styles com Dark).
 - [ ] Toggle opcional persiste a escolha (`fc-theme`) e sobrepõe o sistema.
 - [ ] No light, texto dourado/rosa usa `-ink` (contraste AA).
-- [ ] Botões fill/solid consomem `--cta` (`--cta-grad`/`--cta-solid`/`--cta-solid-h`/`--cta-ink`), nunca `--roxo2`/`--roxo-bright` direto.
+- [ ] Botões fill/solid consomem `--cta` (`--cta-grad`/`--cta-solid`/`--cta-solid-h`/`--cta-ink`), nunca `--primary`/`--primary-bright` direto.
 - [ ] Acessibilidade em **2 níveis**: (1) texto ≥ 4.5:1 (AA, ex. tokens `-ink`); (2) componente/botão vs. fundo ≥ 3:1 (WCAG 1.4.11). O CTA escuro `#7C5EA7` passa o nível 2.
 - [ ] Testar nos dois temas (contraste e legibilidade).
